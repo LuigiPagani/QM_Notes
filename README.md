@@ -20,8 +20,7 @@ The lecture notes cover various topics in Quantum Physics and are organized into
 5. Quantum Measurement and Observables
 6. Quantum Systems and their States
 7. Time Evolution and Quantum Dynamics
-8. Angular Momentum and Spin
-9. Quantum Harmonic Oscillator
-10. Perturbation Theory
+8.  Quantum Harmonic Oscillator
+9. Angular Momentum and Spin
 11. Identical Particles and Symmetry
 12. Quantum Entanglement and Bell's Inequality
