@@ -1,0 +1,1271 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{physics}
+\usepackage{unicode-math}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage{cfr-lm}
+\graphicspath{ {./images/} }
+\usepackage{blindtext}
+\usepackage{hyperref}
+\usepackage{eucal}
+\usepackage{pgfplots}
+
+
+
+\title{Quantum Physics}
+\author{Luigi Pagani }
+\date{2022-2023}
+
+\begin{document}
+
+\maketitle
+
+\section{Lecture 1}
+
+Light is an electromagnetic wave, since we can observe the phenomenon of diffraction.
+Even firing a single electron many times through a crystal, we do observe a diffraction lattice, thus electron is both a wave and a particle.
+In this class, we will study non relativistic quantum Mechanics. Relativistic effects are negligible if the velocity of the particle is small, or in a more rigours way if: $E_k \ll E_0 = mc^2.$
+Since in the quantum mechanical world we can observe diffraction phenomena, we need to build a model where the superposition principle holds. So we need a vector field. In this vector field, quantum states are called kets, and the symbol associated to them is the following one: $ \ket{u}$.
+Now we will illustrate the basic mathematical properties of \emph{kets}.
+
+\begin{itemize}
+
+\item $\alpha \ket{u} \triangleq \ket{\alpha u}$
+
+\item $ \ket{u} + \ket{v} \triangleq \ket{u+v}$
+
+\item $ \bra{u} \ket{\alpha v} \triangleq \alpha \bra{v} \ket{u} $
+
+\item $ \bra{u}\ket{v} \triangleq \bra{v}\ket{u}^*$
+
+\item $\bra{v}\ket{n+w} \triangleq \bra{v}\ket{n} + \bra{n}\ket{w}$ 
+
+\end{itemize}
+A space satisfying all these properties is called an Hilbert Space. So Quantum States form an Hilbert Space.
+The \emph{bra} is an operator associating a vector in Hilbert space to a complex scalar. The notation for the \emph{bra} is the following: $\bra{v}$. The bra space is the dual of the \emph{kets} Hilbert space.
+\begin{itemize}
+
+\item  $\bra{\alpha u} \triangleq \alpha^* \bra{v}  $ 
+
+\item $ \bra{u+v} \triangleq \bra{u} + \bra{v}$
+
+\end{itemize}
+We can define a norm: $\norm{u} = \sqrt{\bra{u}\ket{u}}\in \mathbb{R^+}$.
+The norm satisfy the Cauchy-Schwarz inequality: $\norm{u+v} \leq \norm{u} + \norm{v}. $
+
+\section{Lecture 2}
+
+Quantum states are characterised by:
+\begin{itemize}
+    \item Wave particle Duality
+    \item  Lack of Determinism
+    \item Superposition Principle
+\end{itemize}
+Now we introduce the concept of observables. In quantum mechanics the result of an experiment is always a real number. In quantum mechanics if you make a measurement on the same quantum state, you do not necessarily get back the same observable value. The specific quantum states which have this properties are called \emph{pure states}.
+For example, if I shot an electron against a detector, not passing by a slit or crystal, I always get the measurement of the electron in the same position. Pure states always exist for any observable and for any quantum state. The \emph{pure states} can be used to construct our Hilbert Space. They will be the basis of the Hilbert Space, since \emph{pure states} are orthogonal to each other. \\
+If we have the following state $\ket{u} = \alpha \ket{n} + \beta \ket{v}$, where $\ket{n}$ and $\ket{v}$ are pure states, respectively with the associated observables $N$ and $V$, the observables we can get from measuring $\ket{u}$ is either $N$ or $V$, not a combination of the twos. We can determine the time evolution of the quantum states, but not the results of the measurement. It is not a lack of information, the randomness is intrinsic to the measurement.
+We will indicate with $P(N)$ the probability of getting the observable $N$ from our measurement.
+For the quantum state $\ket{u}$, the following holds true:  $P(N) = \frac{\alpha^2}{\alpha^2+\beta^2}$.\\
+We can restrict the study of quantum states having norm one. So, assuming that $\alpha^2 + \beta^2 = 1 $, the previous equation becomes even simpler: $P(N) = \alpha^2$.
+We can multiply any quantum states by any scalar, and we obtain the same quantum state.  Even limiting ourselves to states with unitary norm, we have still a lot of choices of quantum states. 
+Indeed quantum states are gauge invariant: $\ket{u} $ and $ e^{i\theta} \ket{u}$ describe the same state.\\ \\
+Now we must rigorously define the definition of measurement. After a measurement the state collapses to the \emph{pure state} we have just observed. If I take the same measurement twice, in an interval of time arbitrary small, we will get the same observable.
+The measurement reset the system in a \emph{pure state} , but anyways we cannot predict the future measurement, we just find a new initial state.
+
+\section{Lecture 3}
+
+In this lecture we will define an \emph{algebra} of observables and pure states.\\
+$\ket{u} = \alpha_1 \ket{o_1} + \alpha_2 \ket{o_2} + \dots + \alpha_j\ket{o_j} = \sum_{j \in J} \alpha_j \ket{o_j}$.
+As previously mentioned we will restrict our study to quantum states with unitary norm.
+The \emph{pure states} $o_j, j \in J$ form an orthogonal basis of our Hilbert Space. Thus the two following properties hold:
+
+\begin{itemize}
+    \item $ \norm{o_j} = 1 \ \forall j$
+    \item $\bra{o_j}\ket{o_k} = \delta_{jk}$
+\end{itemize}
+There is a strong analogy between the discrete and continuous case, the only difference is the summation becoming an integral. \\
+$$ \ket{u} = \int \alpha(\xi)\ket{o(\xi)} d \xi $$. \\ 
+$$P[O(x) \leq O \leq O(x+\delta x)] \simeq  |\alpha(x)|^2 \delta x$$ \\ 
+In the following expression, $ \ket{o(x_0)}$ is a pure state, thus $\alpha(x) = \delta(x-x_0)$. \\
+$$\ket{o(x_0)} = \int \alpha(x) \ket{o(x)} dx = \int \delta(x-x_0) \ket{o(x)} dx = \ket{o(x_0)} $$.
+\paragraph{Representation of quantum states}
+
+   \begin{align*}
+    [\mathrm{A_j}] &= \begin{bmatrix}
+           \alpha_1 \\
+           \alpha_2  \\
+           \vdots \\
+           \alpha_j
+         \end{bmatrix}
+  \end{align*}
+
+  \begin{align*}
+    [\mathrm{B_j}] &= \begin{bmatrix}
+           \beta_1 \\
+           \beta_2  \\
+           \vdots \\
+           \beta_j
+         \end{bmatrix}
+  \end{align*}
+For the sum of two quantum states we can write:
+$$\ket{u} + \ket{v} = \sum_{j} \alpha_j \ket{o_j} + \sum_{j} \beta_j \ket{o_j} = \sum_{j}(\alpha_j + \beta_j) \ket{o_j}  $$
+For the inner product:
+  $$\bra{v}\ket{u} = \bra{ \Bigl( \sum_j \beta_j \ket{o_j} \Bigl) }\ket{ \Bigl( \sum_k{\alpha_k \ket{o_k}} \Bigl) } = \sum_{j,k} \bra{\beta_j \ket{o_j}} \ket{(\alpha_k \ket{o_k}} = \sum_{j,k} \beta^*_j \alpha_k \bra{o_j} \ket{o_k} = \sum_j \beta_j^* \alpha_j.$$
+
+  For the continuous case, the sum become an integral, so:
+  $$ \bra{v}\ket{u} = \int \beta^*(x) \alpha(x) dx$$
+We can also change the basis of our Hilbert Space. To find the coefficient in the two basis:
+$ \alpha_j = \bra{v_j} \ket{u}$ and $\alpha^,_j = \bra{w_j}\ket{u}$.
+Now we will derive the formula for the change of basis. \\ 
+$1) \ \alpha_j = \bra{v_j}\ket{u}$ \\
+$2)\  \ket{v_j} = \sum_k \bra{w_k} \ket{v_j} \ket{w_k}$. \\
+Substituting $2)$ in $ 1)$, we obtain the following: $$\alpha_j = \sum_k \bra{w_k} \ket{v_j}^* \bra{w_k} \ket{u} = \sum_k \bra{v_j} \ket{w_k} \bra{w_k} \ket{u}$$.
+
+\section{Lecture 4}
+
+As we have seen in the previous lectures, $ \alpha_j = \sum_k M_{jk} \beta_k$, with $ M_{jk}=\bra{v_k}\ket{o_j}$ and $ \beta_j = \sum_k M_{jk}' \alpha_k$, with $ M_{jk}' = \bra{o_j}\ket{v_k}$. Moreover, let's note that $M_{jk}' = M_{kj}^*$ and that $M_{jk}^{-1}=M_{kj}^*$
+For the continuous case it becomes:
+$$ \alpha(\xi) = \int d\chi f(\xi,\chi) \beta(\chi),$$where  $f(\xi,\chi) = \bra{o(\xi)}\ket{v(\chi)}$.
+
+\paragraph{Operators} 
+
+Operators are functions on Hilbert Spaces: $\mathcal{H} \mapsto \mathcal{H}$.
+Now we will study the properties of the projector operator.
+$\hat{P_{oj}} \triangleq \ket{o_j}\bra{oj}$.
+The projector is applied to a ket: $\hat{P_{oj}}\ket{v} =\ket{o_j}\bra{oj}\ket{v}.$ \\
+In quantum mechanics operators are associated to observables. If $\ket{o_j}$ are pure states and $O_j$ the associated observables, we define the operator $$\hat{O} = \sum_j O_j \ket{o_j}\bra{o_j}.$$
+For continuous systems, the situation is similar:
+$$\hat{O} \triangleq \int d\xi O(\xi) \ket{o(\xi)}\bra{o(\xi)}.$$
+We can prove that $\hat{O}$ is a self-adjoint operator, which means that for all $u,v$, the following holds true:
+$$ \bra{v} \biggl( \hat{O} \ket{u} \biggl) = \biggl( \bra{v} \hat{O} \biggl) \ket{u}$$
+
+\begin{align*} 
+\bra{v} \biggl( \hat{O} \ket{u} \biggl) =\bra{v}\sum_j O_j \ket{o_j}\bra{o_j} \ket{u}= \sum_j O_j \bra{v}\ket{o_j}\bra{o_j}\ket{u} \\ 
+ \biggl( \bra{v} \hat{O} \biggl) \ket{u} = \sum_j O_j^* \bra{o_j}\ket{v}^* \bra{o_j}\ket{u} = \sum_j O_j \bra{v}\ket{o_j}\bra{o_j}\ket{u}
+\end{align*}
+In the last equality we have used the fact that the observable is always a real number.
+Now we will uncover the relationship between the operator $\hat{O}$ and the ket $\ket{o_{j0}}$.
+$$\hat{O} \ket{o_{j0}} = \sum_j O_j \ket{o_j} \bra{o_j}\ket{o_{j0}} = O_{j0} \ket{o_{j0}}.  $$
+So pure states are the eigenstates of the operators, and the observables are the associated eigenvectors.
+For a general quantum states, instead we get:
+$$\hat{O} \ket{o} = \sum_j O_j \ket{o_j} \bra{o_j}\ket{o} = \sum_j O_j \alpha_j \ket{o_j}.$$
+
+Let's introduce a new notation. $\langle O \rangle$ is the expected value of the observable.
+\begin{align*}
+ \langle O \rangle  = \sum_j O_j P(O_J) = \sum_j O_j  | \alpha_j |^2 = \sum_j O_j \bra{v}\ket{o_j}\bra{o_j}\ket{v} = \\ = \sum_j  \bra{v} O_j \ket{o_j} \bra{o_j}\ket{v} 
+ = \bra{v} \sum_j O_j \ket{o_j}\bra{o_j}\ket{v} = \bra{v} \hat{O} \ket{v}.
+ \end{align*}
+
+\section{Lecture 5}
+
+$$ \ket{u} = \sum_j \alpha_j \ket{o_j} \ \ \ \ \ \ket{u} = \sum_k \beta_k \ket{v_k} $$
+ We can represent the same kets in two different bases. In the eigenstates bases we define the diagonal matrix associated to an operator. Let's note that $(M_{kj})^{-1} = M_{jk}$. We can translate a vector in the two bases with the following operations:
+ 
+   \begin{align*}
+    \begin{bmatrix}
+           \alpha_1 \\
+           \alpha_2  \\
+           \vdots \\
+           \alpha_j
+         \end{bmatrix}  =  \Bigr[ \mathrm{M_{kj}^{-1}} \Bigr] \begin{bmatrix}
+             \beta_1 \\
+             \beta_2 \\
+             \vdots \\
+             \beta_j
+         \end{bmatrix}
+  \end{align*}
+If $\hat{D}$ is the operator of $\hat{O}$ in its diagonal form, the following equality holds:
+  
+  $$ \hat{O} =  \Bigr[M_{kj} \Bigr] \hat{D} \Bigr[ M_{kj}^{-1} \Bigr] $$
+Now we will see the position operator, for a two dimensional system. For the position operator.
+$$ \hat{X_0} = \begin{bmatrix}
+    x_0 \ 0 \\
+    0    \ -x_0 \\
+\end{bmatrix}$$
+with eigenstates given by $ \ket{x_0} = \begin{bmatrix}
+    x_0 \\
+    0 \\
+\end{bmatrix} , \ket{-x_0} = \begin{bmatrix}
+    0 \\
+    -x_0 \\
+\end{bmatrix}. $ \\ \\ 
+Now we will define the rotation operator $\hat{R} = \begin{bmatrix}
+    0 \ \ 1 \\
+    0 \  \ 1 \\
+\end{bmatrix}$ with the following eigenstates: $ \ket{g} = \begin{bmatrix}
+\frac{1}{\sqrt2} \\ \\
+\frac{1}{\sqrt2}
+\end{bmatrix}, \ket{u} = \begin{bmatrix}
+    \frac{1}{\sqrt2} \\ \\
+    \frac{-1}{\sqrt2}
+\end{bmatrix}$ associated to the eigenvalues $ \lambda_1 = 1, \lambda_2 = -1$. \\  \\
+$$\ket{u} = \alpha_1 \ket{x_0} + \alpha_2 \ket{-x_0}$$
+$$\ket{u} = \beta_1 \ket{g} + \beta_2 \ket{u}$$ \\
+Now let's explore the relationship between the two basis:\\
+$$\ket{v} = \alpha_1 \ket{x_0} + \alpha_2 \ket{-x_0} \ , \
+\ket{v} = \beta_1 \ket{g}  + \beta_2 \ket{u} $$ 
+$$ \alpha_1 =  \bra{x_0}\ket{v} = \beta_1 \bra{x_0}\ket{g} + \beta_2 \bra{x_0}\ket{u}$$
+$$ \alpha_2 =  \bra{-x_0}\ket{v} = \beta_1 \bra{-x_0}\ket{g} + \beta_2 \bra{-x_0}\ket{u}$$\\
+In matrix form, the change of basis become: \\
+$$ \begin{bmatrix}
+    \alpha_1 \\
+    \alpha_2 \\ 
+\end{bmatrix} = \begin{bmatrix}
+    \bra{x_0}\ket{g} \ \ \bra{x_0}\ket{u} \\
+    \bra{-x_0}\ket{g} \  \ \bra{-x_0}\ket{u} \\
+\end{bmatrix} \begin{bmatrix}
+    \beta_1 \\
+    \beta_2 \\
+\end{bmatrix}$$. \\ \\
+We call the newfound matrix $U = \begin{bmatrix}
+    \bra{x_0}\ket{g} \ \ \bra{x_0}\ket{u} \\
+    \bra{-x_0}\ket{g} \  \ \bra{-x_0}\ket{u} \\
+\end{bmatrix} $
+$$\hat{X_p} = U^{-1} X_x U = \begin{bmatrix}
+    0 \ x_0 \\
+    x_0 \ 0 \\
+\end{bmatrix}$$ 
+This position operator in parity form, has obviously the same eigenstates.
+Now let's define, $\hat{H}$ energy operator, which gives us the total energy of the system.
+$\hat{R}$ is the rotation operator:
+$$\hat{R} = \begin{bmatrix}
+    0 \ 1 \\
+    1 \ 0 \\
+\end{bmatrix}$$
+$$\hat{H} \ket{e} = E \ket{e}$$
+We are assuming to be working on the Ammonia molecule, which can be rotated around its axis passing vertically through the Oxygen. For obvious reason, rotating the systems should not change its energy level, thus we impose the following constraint:
+$$ \hat{H}\hat{R}\ket{e} = E\hat{R}\ket{e}  \implies
+\hat{R}\hat{H}\hat{R}\ket{e} = E\hat{R}\hat{R}\ket{e} = E\ket{e} = \hat{H}\ket{e}.$$
+Thus $\hat{R}\hat{H}\hat{R} = \hat{H}$.
+Since the operators are Hermitian, $\hat{H}$ has the following form:
+$$\hat{H} = \begin{bmatrix}
+    a \ b \\
+    b^* \ c \\
+\end{bmatrix}$$
+If we impose the previous condition, we get that the matrix has indeed the following form:
+$$\hat{H} = \begin{bmatrix}
+    a \ b \\
+    b \ a \\
+\end{bmatrix}$$
+The eigenvalues of $\hat{H}$ are $\lambda =  a \pm b$. If we impose $a=0$, since energy is defined up to a constant, we get that $E = \pm b = \pm \frac{\Delta E}{2}$. \\
+Thus we get: $\hat{H} = \begin{bmatrix}
+    0 \ \ \frac{\Delta E}{2} \\ \\
+    \frac{\Delta E}{2} \ \ 0    \\
+\end{bmatrix}$\\ 
+In the fundamental state, the energy will occupy the lowest energy state, so $E = - \frac{\Delta E}{2}$, if $\Delta E > 0.$ The eigenstate associated with this eigenvalue is $\ket{g}$, the parity eigenstate.
+The expected value of the position is obviously 0. 
+$$ \langle X \rangle = \bra{g} \hat{X} \ket{g} = 0 $$
+
+\section{Lecture 6}
+
+Now we will find out the form of the velocity $\hat{V}$ operator.
+$$\hat{V} = \begin{bmatrix}
+    a \  b \\
+    b^* \ c \\
+\end{bmatrix} \ , \ a,c \in \mathbb{R}, b \in \mathbb{C}. $$
+
+If $\hat{V} \begin{bmatrix}
+    \alpha_1 \\
+    \alpha_2 \\
+\end{bmatrix} = v \begin{bmatrix}
+    \alpha_1 \\
+    \alpha_2 \\
+\end{bmatrix}$, then:
+$$\hat{V} \hat{R} \begin{bmatrix}
+    \alpha_1 \\
+    \alpha_2 \\
+\end{bmatrix} = -v \hat{R}\begin{bmatrix}
+    \alpha_1 \\
+    \alpha_2 \\
+\end{bmatrix} \implies \hat{R}\hat{V}\hat{R}\begin{bmatrix}
+    \alpha_1 \\
+    \alpha_2 \\
+\end{bmatrix} = -v \begin{bmatrix}
+    \alpha_1 \\
+    \alpha_2 \\
+\end{bmatrix} \implies \hat{R}\hat{V}\hat{R} = - \hat{V}$$
+Solving this equations, we obtain the constraints on the operator:
+$$\begin{cases}
+     &  c=-a \\
+     & b =-b^*\\ 
+\end{cases} $$
+Thus $b$ is a pure complex number. We can write the matrix $\hat{V}$ in the following simplified form: \ \ 
+$$\hat{V} = \begin{bmatrix}
+    a \ \ id  \\
+    -id \ \ -a \\
+\end{bmatrix}  \ \ a,d \in \mathbb{R}$$
+The eigenvalues of $\hat{V}$ are: $v= \pm \sqrt{a^2+d^2}$.
+For the Heisenberg uncertainty principle, $d \neq 0$. If $d = 0$, then $\hat{V}$ and $\hat{X}$ would have the same eigenstates, thus in those two states we would know with certainty both the position and the velocity.\\ \\ 
+Now we will introduce the notion of Qubits, which is the name for a quantum system with two basis vectors. \\ 
+We introduce the following notation for the basis vectors: $\ket{0}, \ket{1}$.
+$\ket{v} = a\ket{o}+b\ket{1} $, with the constraints that $\norm{a}^2+\norm{b}^2=1.$\\
+Since quantum systems are gauge invariant, we can write:
+$$ \ket{v} = z\ket{o}+ (x+iy) \ket{1} \ , \ x,y,z \in \mathbb{R}.$$
+We can rewrite the following expression: \\
+$ z = cos \bigl( \frac{\theta}{2} \bigl) $\\
+$ x +iy = e^{i\phi}sin\bigl( \frac{\theta}{2} \bigl)$
+\\
+Any Hermitian matrix has the following form:
+$$\hat{O} = \begin{bmatrix}
+    \delta +\alpha \ \ \  \gamma-i\beta \\
+    \gamma + i\beta \ \ \  \delta - \alpha \\ 
+\end{bmatrix} \ , \ \alpha,\beta,\gamma, \delta \in \mathbb{R}$$
+We can decompose the generic operator $\hat{O} = \alpha \hat{\sigma}_z + \beta \hat{\sigma}_y + \gamma \hat{\sigma}_x + \delta \hat{I} $ with the Pauli matrices.
+
+$$\hat{\sigma}_x = \begin{bmatrix}
+    0 \ \  1 \\ 1 \ \ 0
+\end{bmatrix} \ , \ \hat{\sigma}_y =\begin{bmatrix}
+    0 \ \ -i \\ i \  \ 0
+\end{bmatrix} \ , \ \hat{\sigma}_z = \begin{bmatrix}
+    1 \ \  0 \\ 0 \ \ -1
+\end{bmatrix} $$
+Each of these Pauli matrices represent a $180$° rotation around the $x,y,z$ axis of the Bloch Sphere. Any rotation around the axis can indeed be represented as a linear combination of the identity operator and one of the Pauli matrices.
+$$\hat{R}_x(\theta)= cos\biggl(\frac{\theta}{2} \biggl) \hat{I} - i sin \biggl(\frac{\theta}{2} \biggl) \hat{\sigma_x}.$$
+The equations is analogous for the other two axis. \\ \\ 
+\includegraphics[scale=0.6]{Bloch_sphere.svg.png} \\ \\ 
+Let's review the Hamiltonian operator: 
+$$\hat{H}\ket{u} = E\ket{u} \implies \hat{H}\hat{R} \ket{u} = E\hat{R}\ket{u} \implies \hat{R}^{-1} \hat{H}\hat{R} = E \hat{R}^{-1}\hat{R}\ket{u} = E\ket{u} = \hat{H} \ket{u}.$$
+$$\implies \hat{R}^{-1}\hat{H}\hat{R}=\hat{H} \implies \hat{H}\hat{R} = \hat{R}\hat{H}. $$
+We have just proved that $\hat{H}$ and $\hat{R}$ commute.
+$$\hat{H}\hat{R}\ket{v}=\hat{R}\hat{H}\ket{v} \implies \hat{H}p\ket{v} = \hat{R}\hat{H}\ket{v},$$
+where $p$ is the parity, such that: $p\ket{u} = \hat{R}\ket{u}.$ \\ 
+Two operators commute if and only if there is a set of common eigenstates.
+As we have seen in the last lecture:
+$$p\ket{u}=\hat{R}\ket{u}$$
+$$\ket{u} = \alpha \ket{v}$$
+$$\hat{H}\ket{v} = \alpha \ket{v}$$
+
+$$\ket{u} = \sum_k \alpha_j \ket{v_j}$$
+Since they share a common sets of eigenstates:
+$$\hat{A}\ket{v_j} = \alpha_j \ket{v_j}$$ 
+$$\hat{B}\ket{v_j} = \beta_j \ket{v_j}$$ \\ 
+
+$$ \hat{A}\hat{B} \ket{u} = \sum_j \alpha_j \hat{A}\hat{B} \ket{v_j} = \sum_j \alpha_j \hat{A} b_j \ket{v_j} =  \sum_j \alpha_j  b_j \hat{A} \ket{v_j} = \sum_j \alpha_j b_j a_j \ket{v_j}. $$ \\ 
+$$\hat{B}\hat{A}\ket{u}= \sum_j \hat{B}\hat{A}\ket{v_j} = \sum_j \alpha_j \hat{B}a_j \ket{v_j} = \sum_j \alpha_j a_j \hat{B}\ket{v_j} = \sum_j \alpha_j a_j b_j \ket{v_j}.$$
+
+\section{Lecture 7}
+
+If $\hat{A}\hat{B} = \hat{B}\hat{A} \implies \hat{A} \bigl( \hat{B} \ket{v} \bigl) = \hat{B} \bigl( \hat{A}\ket{v} \bigl)$, thus $\hat{A}$ and $\hat{B}$ have a common sets of eigenstates.
+If $\hat{A}\hat{B} \neq \hat{B}\hat{A} \implies \hat{A}\hat{B} - \hat{B}\hat{A} \neq 0.$
+We define the commutator operator: $[\hat{A},\hat{B} ] = \hat{A}\hat{B} - \hat{B}\hat{A}.$ \\
+We define the variance of an operator: 
+
+\begin{align*}
+   \sigma^2 \triangleq \sum_j \bigl( O_j -\langle o \rangle \bigl)^2 P \bigl(O_j\bigl) = \bra{v} \bigl( \hat{O} - \langle o \rangle \bigl)^2 \ket{v}   = \bra{v} \hat{O}^2 \ket{v} + \langle o \rangle^2 -2 \langle o \rangle \bra{v} \hat{O} \ket{v} = \\ = \bra{v} \hat{O}^2 \ket{v} + \langle o \rangle^2 -2 \langle o \rangle^2 = \bra{v} \hat{O}^2 \ket{v} - \langle o \rangle^2 = \bra{v} \hat{O}^2 - \langle o \rangle ^2 \ket{v}.
+\end{align*}
+Now we will define the following operator:
+$$\hat{A'} = \hat{A} - \langle A \rangle.$$
+On Hilbert Spaces the Cauchy-Schwartz Inequality holds:
+$$ \norm{\bra{u}\ket{w}}^2 \leq \bra{u}\ket{u}\bra{w}\ket{w}. $$
+For the operators $\hat{A}, \hat{B}$, exploiting the Hermitian property, we can write:
+$$\sigma_A^2 =  \bra{v} \hat{A}^2 - \langle A \rangle ^2 \ket{v} = \bra{v} \hat{A'}^2 \ket{v}= \bra{v \hat{A'}} \ket{\hat{A'} v}$$
+$$\sigma_B^2 =  \bra{v} \hat{B}^2 - \langle B \rangle ^2 \ket{v} = \bra{v} \hat{B'}^2 \ket{v}= \bra{v \hat{B'}} \ket{\hat{B'} v}$$ 
+We can now apply CS Inequality, with $\ket{u} = \hat{A'}\ket{v}$ and $ \ket{w} = \hat{B'}\ket{v}.$
+\begin{align*}
+  \sigma_A^2\sigma_B^2 \geq  \norm{\bra{v \hat{A'}}\ket{B'v} }^2 = \norm{ \bra{v} \hat{A'}\hat{B'}\ket{v}}^2 \geq  Im \bigl( \bra{v}\hat{A'}\hat{B'} \ket{v} \bigl)^2 = \frac{1}{4} \norm{ \bra{v}\hat{A'}\hat{B'}\ket{v} - \bra{v}\hat{A'}\hat{B'}\ket{v}^* }^2 = \\ 
+  =\frac{1}{4} \norm{ \bra{v}\hat{A'}\hat{B'}\ket{v} - \bra{v}\hat{B'}\hat{A'}\ket{v} }^2 = \frac{1}{4} \norm{ \bra{v}\hat{A'}\hat{B'} - \hat{B'}\hat{A'}\ket{v} }^2 = \frac{1}{4} \norm{ \bra{v} [\hat{A'},\hat{B'}]\ket{v} }^2 = \frac{1}{4} \norm{[\hat{A'},\hat{B'}] }^2 .
+\end{align*}
+Applying this formula to the Position and Hamiltonian Operator we get:
+$$ \sigma_x \sigma_E \geq \frac{1}{2} \norm{ \bra{v} [\hat{X'},\hat{H'}]\ket{v} } = \frac{1}{2} xo \Delta E$$
+$$ \sigma_x^2 = \bra{v} \hat{X}^2 - \langle x \rangle \ket{v} = \bra{v} \hat{X}^2 \ket{v} - \langle x \rangle^2 = x_0^2$$
+$$\sigma_E^2 = \bra{v} \hat{H}^2 - \langle E \rangle ^2 \ket{v} = \bra{v} \hat{H}^2 \ket{v} - \langle E \rangle ^2 = \frac{\Delta E^2}{4}$$
+
+\paragraph{Composites Systems}In a composite system, there are new degrees of freedom. For example the position of the two Hydrogen atoms in the H2-TPP. \\ \\
+
+\includegraphics[]{H2TPP.png}
+\\ \\
+$$\mathcal{H}_x \mapsto \ket{u^{(x)}} \ ,\ \ \mathcal{H}_y \mapsto \ket{u^{(y)}}$$
+
+$$ \ket{u^{(x)}u^{(y)}} \triangleq \Bigl( \ket{u^{(x)}} \Bigl) \Bigl( \ket{u^{(y)}} \Bigl) \in \mathcal{H}_x \otimes \mathcal{H}_y.$$ \\
+The Tensor product of Hilbert Spaces is still an Hilbert Space. 
+
+$$ \Bigl( \ket{u^{(x)} + v^{(x)}} \Bigl) \Bigl( \ket{u^{(y)}+ v^{(y)}} \Bigl) \triangleq \ket{u^{(x)} u^{(y)}} + \ket{v^{(x)}v^{(y)}} + \ket{u^{(x)}v^{(y)}}+\ket{v^{(x)}u^{(y)}}.$$
+
+$$\bra{v^{(x)} v^{(y)}} \ket{{u^{(x)}u^{(y)}}} \triangleq \bra{v^{(x)}}\ket{u^{(x)}} \bra{v^{(y)}}\ket{u^{(y)}}.$$
+
+If: $$\hat{O}^{(x)} \ket{u^{(x)}} = \ket{w^{(x}} \implies \hat{O}^{(x)} \ket{u^{(x)}v^{(y)}} = \ket{w^{(x)}v^{(y)}}.$$
+Let's introduce more definitions and equality:
+$$\hat{O}^{(x)}\hat{O}^{(y)}\ket{u^{(x)}u^{(y)}} \triangleq \ket{w^{(x)}w^{(y)}} \triangleq \hat{O}^{(y)}\hat{O}^{(x)}$$
+
+$$\ket{u^{(x)}} = \sum_j \alpha_j^{(x)} \ket{o_j^{(x)}}$$
+$$\ket{u^{(y)}} = \sum_k \beta_k^{(u)} \ket{o_j^{(u)}} $$
+$$\ket{u^{(x)}u^{(y)}} = \sum_{jk} \alpha_j^{(x)}\beta_k^{(y)} \ket{o_j^{(x)}o_k^{(y)}}$$
+
+\section{ Lecture 8}
+Energy of the H-TPP. Four degrees of freedom.
+$$\ket{x} \mapsto \begin{bmatrix}
+    \alpha_1 \\
+    \alpha_2 \\
+\end{bmatrix} \ , \ \ket{y} \mapsto \begin{bmatrix}
+    \beta_1 \\
+    \beta_2 \\
+\end{bmatrix}$$
+
+$$\implies \ket{xy} \mapsto \Biggl\{ \begin{bmatrix}
+    \alpha_1 \\
+    \alpha_2 \\
+\end{bmatrix}_x, \begin{bmatrix}
+    \beta_1 \\
+    \beta_2 \\
+\end{bmatrix}_y \Biggl\}$$
+To find the eigenstates, we impose the condition that: 
+\begin{align*} 
+\begin{bmatrix}
+    0 \ \frac{\Delta E}{2} \\
+    \frac{\Delta E}{2} \ 0 \\
+\end{bmatrix}_x \cdot \ \Biggl\{ \begin{bmatrix}
+    \alpha_1 \\
+    \alpha_2 \\
+\end{bmatrix}_x,\begin{bmatrix}
+    \beta_1 \\
+    \beta_2 \\
+\end{bmatrix}_y \Biggl\} \ + \begin{bmatrix}
+    0 \ \frac{\Delta E}{2} \\
+    \frac{\Delta E}{2} \ 0 \\
+\end{bmatrix}_y \cdot \ \Biggl\{ \begin{bmatrix}
+    \alpha_1 \\
+    \alpha_2 \\
+\end{bmatrix}_x,\begin{bmatrix}
+    \beta_1 \\
+    \beta_2 \\
+\end{bmatrix}_y \Biggl\} = \\ \\ = \frac{\Delta E}{2}  \Biggl\{ \begin{bmatrix}
+    \alpha_2 \\
+    \alpha_1 \\
+\end{bmatrix},\begin{bmatrix}
+    \beta_1 \\
+    \beta_2 \\
+\end{bmatrix} \Biggl\} + \frac{\Delta E}{2} \Biggl\{ \begin{bmatrix}
+    \alpha_1 \\
+    \alpha_2 \\
+\end{bmatrix},\begin{bmatrix}
+    \beta_2 \\
+    \beta_1 \\
+\end{bmatrix} \Biggl\} =  \bigl(1\bigl)
+\end{align*}
+Assuming that $\frac{\Delta E}{2} \begin{bmatrix}
+    \alpha_2 \\
+    \alpha_1 \\
+\end{bmatrix} = c \begin{bmatrix}
+    \alpha_1 \\
+    \alpha_2 \\
+\end{bmatrix}$ and $\frac{\Delta E}{2} \begin{bmatrix}
+    \beta_2 \\
+    \beta_1 \\
+\end{bmatrix} = c' \begin{bmatrix}
+    \beta_1 \\
+    \beta_2 \\
+\end{bmatrix}$:
+
+$$ \implies c = \pm \frac{\Delta E}{2}, \ c' = \pm \frac{\Delta E}{2}.$$
+
+\begin{align*}
+    \bigl(1\bigl) =\pm \frac{\Delta E}{2} \Biggl\{ \begin{bmatrix}
+    \alpha_1 \\
+    \alpha_2 \\
+\end{bmatrix},\begin{bmatrix}
+    \beta_1 \\
+    \beta_2 \\
+\end{bmatrix}  \Biggl\} \pm \frac{\Delta E}{2} \Biggl\{ \begin{bmatrix}
+    \alpha_1 \\
+    \alpha_2 \\
+\end{bmatrix},\begin{bmatrix}
+    \beta_1 \\
+    \beta_2 \\
+\end{bmatrix} \Biggl\} = E \Biggl\{ \begin{bmatrix}
+    \alpha_1 \\
+    \alpha_2 \\
+\end{bmatrix},\begin{bmatrix}
+    \beta_1 \\
+    \beta_2 \\
+\end{bmatrix} \Biggl\} \implies E = \pm \frac{\Delta E}{2} \pm \frac{\Delta E}{2}.
+\end{align*}
+We have just solved the eigenvalue problem. The eigenvectors are:
+$$ \ket{v} = \Biggl\{ \begin{bmatrix}
+     \frac{1}{\sqrt{2}} \\
+    \pm \frac{1}{\sqrt{2}} \\ 
+\end{bmatrix}, \begin{bmatrix}
+     \frac{1}{\sqrt{2}} \\
+    \pm \frac{1}{\sqrt{2}} \\ 
+\end{bmatrix} \Biggl\}
+$$
+Let's consider a basis: $ \ket{x_0,y_0}, \ket{x_0, -y_0}, \ket{-x_0,y_0}, \ket{-x_0,-y_0}$.
+ $$\Biggl\{ \begin{bmatrix}
+    \alpha_1 \\
+    \alpha_2 \\
+\end{bmatrix},\begin{bmatrix}
+    \beta_1 \\
+    \beta_2 \\
+\end{bmatrix} \Biggl\} \mapsto \begin{bmatrix}
+    \alpha_1 \beta_1 \\
+    \alpha_1 \beta_2 \\
+    \alpha_2 \beta_1 \\ 
+    \alpha_2 \beta_2 \\
+\end{bmatrix}$$
+The vector we got is still a normalized vector.
+
+$$ \hat{H} \begin{bmatrix}
+    \alpha_1 \beta_1 \\
+    \alpha_1 \beta_2 \\
+    \alpha_2 \beta_1 \\ 
+    \alpha_2 \beta_2 \\
+\end{bmatrix} = \frac{\Delta E}{2} \begin{bmatrix}
+    \alpha_2 \beta_1 \\
+    \alpha_2 \beta_2 \\
+    \alpha_1 \beta_1 \\ 
+    \alpha_1 \beta_2 \\
+\end{bmatrix} + \frac{\Delta E}{2} \begin{bmatrix}
+    \alpha_1 \beta_2 \\
+    \alpha_1 \beta_1 \\
+    \alpha_2 \beta_2 \\ 
+    \alpha_2 \beta_1 \\
+\end{bmatrix}  = \frac{\Delta E}{2} \begin{bmatrix}
+    \alpha_2 \beta_1 + \alpha_1 \beta_2 \\
+    \alpha_2 \beta_2 + \alpha_1 \beta_1 \\
+    \alpha_1 \beta_1 + \alpha_2 \beta_2 \\ 
+    \alpha_1 \beta_2 + \alpha_2 \beta_1 \\
+\end{bmatrix}$$
+
+$$\implies \hat{H} = \frac{\Delta E}{2} \begin{bmatrix}
+    0 \ 1 \ 1 \ 0 \\
+    1 \ 0 \ 0 \ 1 \\
+    1 \ 0 \ 0 \ 1 \\
+    0 \ 1 \ 1 \ 0 \\ 
+\end{bmatrix}$$
+\\
+This system is analogous to two non interacting qbits.
+If we want to introduce an interaction, let's study the $H_{2}$ molecule. We assume to have the following basis:
+$\ket{x_0^{(1)},x_0^{(2)}},\ket{-x_0^{(1)},x_0^{(2)}},\ket{x_0^{(1)}, -x_0^{(2)}}, \ket{-x_0^{(1)} -x_0^{(2)}}.$
+Let's calculate the expected value of the energy of the first and last element of the basis:
+$$\bra{x_0^{(1)},x_0^{(2)}} \hat{H} \ket{x_0^{(1)},x_0^{(2)}} = \hat{H}_{11}$$
+$$\bra{-x_0^{(1)},-x_0^{(2)}} \hat{H} \ket{-x_0^{(1)},-x_0^{(2)}} = \hat{H}_{44}.$$
+Since having  two electrons on the same atoms costs more energy, our model doesn't consider the interaction between the electrons.
+In order to have a more realistic model we need a different Hamiltonian:
+$$ \hat{H} =  \begin{bmatrix}
+    \alpha \ 1 \ 1 \ 0 \\
+    1 \ 0 \ 0 \ 1 \\
+    1 \ 0 \ 0 \ 1 \\
+    0 \ 1 \ 1 \ \alpha \\ 
+\end{bmatrix} $$
+We get a two degrees of freedom model, with models not decoupled from each other, in order to have a more realistic model. Like two interacting qbits.
+\paragraph{Continuous Systems}
+
+$$\ket{u} = \int \psi(\xi') \ket{xi'} d\xi'$$
+$$\bra{\xi}\ket{u} = \int \psi (\xi') \bra{\xi}\ket{xi'}d\xi' = \int \psi (\xi') \delta(\xi -\xi') d\xi' =\psi(\xi).$$
+The most natural coordinates to use is position. In this case,
+$\bra{x}\ket{u} \mapsto \psi(x), \psi(x)$ is called the wave function.
+$$\psi(x)^2$$ represents a probability density function.
+$$P(x_0 \leq x \leq x_0 + dx) \simeq | \psi(x_0) |^2$$
+Now we introduce again the position operator:
+$$\langle x \rangle = \int \psi^* ( \hat{X} \psi)$$
+$$ \langle x \rangle  = \int x | \psi(x) | ^2 dx = \int \psi(x)^* x \psi(x) dx.$$
+Thus: $\hat{X} = x$. In the 3d space instead we get: $ \hat{\vec{r}} = \vec{r} = x \vec{u_x} + y \vec{u_y} + z \vec{u_z}. $
+Now we introduce another operator, not related to any other observables. The state translation operator.
+$$\hat{T}_{\vec{R}} \psi(\vec{r}) = \psi(\vec{r}-\vec{R}).$$
+$$\hat{T}_{\vec{R_1}}\hat{T}_{\vec{R_2}} = \hat{T}_{\vec{R_2}}\hat{T}_{\vec{R_1}} = \hat{T}_{\vec{R_1}+ \vec{R_2}}$$
+Let's find the eigenstates. We can write:
+$$\hat{T}_{\vec{R}} \psi(\vec{r}) = \psi(\vec{r}-\vec{R}) = \alpha_{\vec{R}} \psi(\vec{r}) \implies |\alpha_{\vec{R}}|^2 = 1.$$
+
+$$\hat{T}_{\vec{R_1}} \psi(\vec{r}) = \alpha_{\vec{R_1}} \psi(\vec{r})$$
+
+$$\hat{T}_{\vec{R_2}} \psi(\vec{r}) =  \alpha_{\vec{R_2}}\psi(\vec{r})$$
+
+$$ \hat{T}_{\vec{R_1} + \vec{R_2} } \psi(\vec{r}) = \alpha_{\vec{R_1} + \vec{R_2}} \psi(\vec{r}) $$
+
+$$\hat{T}_{\vec{R_1} + \vec{R_2}} \psi(x) = \hat{T}_{\vec{R_1}}\hat{T}_{\vec{R_2}} \psi(\vec{r}) =\alpha_{\vec{R_1}} \alpha_{\vec{R_2}}\psi(\vec{r})  \implies \alpha_{\vec{R_1}} \alpha_{\vec{R_2}} = \alpha_{\vec{R_1} + \vec{R_2}} \psi(\vec{r}) \implies \alpha_{\vec{R}} = e^{i\vec{k}\vec{R}} $$
+The associated wave function is:
+$$\psi(\vec{r}) = \frac{1}{\sqrt{v}} e^{-i\vec{k}\vec{R}}$$
+
+\section{Lecture 9}
+
+$$ \int_{\infty} \bigl| \psi(\vec{r}) \bigl| d\vec{r} = \int_{\infty} \bigl| \psi(\vec{r}-\vec{R}) \bigl|^2 d\vec{r} = \int_{\infty} \bigl| \alpha(\vec{r}) \bigl| ^2 \bigl| \psi(\vec{r}) \bigl|^2 d\vec(r) \implies \bigl| \alpha(\vec{R}) \bigl|^2 = 1. $$
+This result combined with the fact that: $ \alpha(\vec{R}) = e^{-i \vec{k} \vec{R}} $ implies that $k_x,k_y,k_z \in \mathbb{R}.$
+Now:
+$$ \hat{T}_{\vec{R}} \psi(\vec(r)) = \alpha(\vec{R}) \psi(\vec{r}) = e^{-i \vec{k} \vec{R}} \psi(\vec{R}) = \psi(\vec{r}-\vec{R}) \implies \psi(\vec{r}) = \psi(\vec{r}-\vec{R}) e^{i \vec{k} \vec{r}} $$
+Now let's introduce a new function:
+$$\phi(\vec{r}) = e^{-i \vec{k} \vec{r}} \psi(\vec{r}) = e^{-i \vec{k}(\vec{r}-\vec{R})} \psi(\vec{r}-\vec{R}) = \phi(\vec{r}-\vec{R}) \ \ \forall \vec{R}.$$
+$$\implies \phi(\vec{r}) = c \implies \psi(\vec{r}) = c e^{-i\vec{k}\vec{r}}$$
+$$\int \Bigl|c\bigl|^2 d\vec{r} =1 \implies c = \frac{1}{\sqrt{V}}.$$
+We can interpret the shift by $\vec{R}$ as a change of coordinate, which leaves velocity unchanged.
+$\psi(\vec{r'}) = \psi(\vec{r}-\vec{R})$
+If:
+$$ \vec{r'} = \vec{r} -\vec{R} \implies \frac{d\vec{r'}}{dt} = \frac{d\vec{r}}{dt} - \frac{d\vec{R}}{dt}  = \frac{d\vec{r}}{dt} - 0 \implies v' = v.$$
+$$\hat{\vec{V}}\psi(\vec{r}) = \vec{v}\psi(\vec{r})$$
+$$\hat{V}\hat{T}_{\vec{R}}\psi(\vec{r}) = \vec{v}\hat{T}_{\vec{R}}\psi(\vec{r}) = \hat{T}_{\vec{R}}\vec{v} \psi(\vec{r}) = \hat{T}_{\vec{R}}\hat{V}\psi(\vec{r}) \implies \hat{V}\hat{T}_{\vec{R}} =   \hat{T}_{\vec{R}}\hat{V}  \ \ \ \forall \vec{R} $$
+For velocity and momentum we can write:
+$$ \hat{V} ce^{i\vec{k}\vec{r}}=c\vec{v}e^{i\vec{k}\vec{r}}$$
+For a combined system,$\vec{r_1},\vec{r_2}$, we get:
+$$\psi(\vec{r_1},\vec{r_2}) = e^{i(\vec{k_1}\vec{r_1}+\vec{k_2}\vec{r_2})}$$
+Thus, we discover that:
+$$\hat{p}_1 = \vec{p}(\vec{k_1}) \, \ \hat{p}_2 = \vec{p}(\vec{k_2}) \ , \vec{p}_{TOT} = \vec{p}(\vec{k_1}+\vec{k_2}) \implies \vec{p}(\vec{k_1}+\vec{k_2}) = \vec{p}(\vec{k_1}) + \vec{p}(\vec{k_2}). $$ 
+That implies that: $\vec{p} \varpropto \vec{k}$, in particular $\vec{p} = \hslash \vec{k}$ 
+
+And applying a translation in a combined system we get:
+$$\hat{T}_{R}\psi(\vec{r_1},\vec{r_2}) = e^{i(\vec{k_1}\vec{r_1}-\vec{k_1}\vec{R}+\vec{k_2}\vec{r_2}-\vec{k_2}\vec{R})} = e^{-i(\vec{k_1}+\vec{k_2})\vec{R}} e^{i(\vec{k_1}\vec{r_1}+\vec{k_2}\vec{r_2})}.$$
+$$\hat{T}_{R} \psi(\vec{r_1}) = e^{-\vec{k_1}\vec{R}}e^{i\vec{k_1}\vec{r_1}}.$$
+$$\hat{T}_{R} \psi(\vec{r_2}) = e^{-\vec{k_2}\vec{R}}e^{i\vec{k_2}\vec{r_2}}.$$
+
+$$\hat{P}e^{i\vec{k}\vec{r}}= \hslash \vec{k}e^{i\vec{k}\vec{r}}  =  -i \hslash \nabla  $$
+$$\hat{\vec{V}} = \frac{-i\hslash}{m} \nabla $$
+$\hat{\vec{P}}$ is hermitian, since all the components are Hermitian. Now let's prove it for the $x$ component.
+Statement:
+$$ \bra{\varphi} \hat{p}_x \ket{\psi} = \bra{\varphi} \ket{\hat{p}_x \psi} = \bra{ \varphi \hat{p}} \ket{\psi} = \bra{\hat{p}\varphi}\ket{\psi}.$$
+Proof:
+\begin{align*}
+ \int_{-\infty}^{+\infty} \varphi \hat{p}_x \psi dx = -i\hslash \int_{-\infty}^{+\infty} \varphi^* \frac{\partial{d}}{\partial{x}} \psi dx = \Bigl[ -i\hslash\varphi^*\psi \Bigl]_{-\infty}^{+\infty} + i \hslash \int_{-\infty}^{+\infty} \frac{\partial \phi^*}{\partial x} \psi dx = \\ = 0 + \int_{-\infty}^{+\infty} -i \hslash \frac{\partial \varphi^*}{\partial x} \psi dx = \int_{-\infty}^{+\infty} \bigl( \hat{p}_x \varphi \bigl)^* \psi dx =  \end{align*}
+The first  definite integral is zero, because we are talking about density functions, its integrals over the entire space must be finite, so the function goes to zero at infinity.
+
+\paragraph{The Heisenberg Uncertainty Principle}
+\begin{align*}
+    \sigma_x\sigma_{px} \geq \frac{1}{2} \bigl| \bra{\varphi} [ \hat{X}, \hat{P}_x] \ket{\varphi} \bigl| = \frac{1}{2} \Bigl| \bra{\varphi} \hat{x}\hat{p}_x - \hat{p}_x \hat{x} \ket{\varphi} \Bigl| = \frac{1}{2} \Bigl| \int \varphi^* (\hat{x}\hat{p}_x -\hat{p}_x-\hat{x}) \varphi dx \Bigl| = \\ \frac{1}{2} \Bigl| -i\hslash \int \bigl[\varphi^* x \frac{\partial \varphi}{\partial x} - \varphi^* \frac{\partial{(x\varphi)}}{\partial x} \Bigl] dx  = \frac{\hslash}{2} \biggl| \int \biggl\{ \varphi^* x \frac{\partial \varphi}{\partial x} - \varphi^* \biggl[ x \biggl( \frac{\partial \varphi}{\partial x} + \varphi \biggl)\biggr] \biggr\} dx \biggr|  = \frac{\hslash}{2} \Biggl| \int \varphi^* \varphi dx \Biggl| = \frac{\hslash}{2}.
+\end{align*}
+
+\section{Lecture 10}
+\textbf{Continuous Systems in Momentum Representation}
+Let's remember that here $\ket{\vec{r}},\ket{\vec{p}}$ are eigenstates.
+$$\psi(\vec{r}) \triangleq \bra{\vec{r}}\ket{u}$$
+$$\Psi(\vec{p}) \triangleq \bra{\vec{p}}\ket{u}$$
+$$\ket{u} = \int \psi (\vec{r}) \ket{\vec{r}} d\vec{r}$$
+$$\Psi(\vec{p}) = \int \psi(\vec{r}) \bra{\vec{p}}\ket{\vec{r}}d\vec{r} = \int \psi(\vec{r}) \bra{\vec{r}}\ket{\vec{p}}^* d\vec{r} = \frac{1}{\sqrt{v}} \int \psi(\vec{r}) \biggl[ \frac{1}{v}e^{ik\vec{r}}{\hslash} \biggl]^*d\vec{r} =  \frac{1}{\sqrt{v}} \int \psi(\vec{r}) e^{-i\vec{k}\Vec{r}}d\vec{r} =$$ $$ = \frac{1}{\sqrt{v}} \int \psi(\vec{r}) e^{-i \frac{\vec{p}\vec{r}}{\hslash}}d\vec{r}$$ \\ 
+
+$$\langle \hat{\vec{p}} \rangle = \int \Bigl| \Psi(\vec{r}) \Bigl|^2 \vec{p} d\vec{p} = \int \Psi^* (\vec{p}) \vec{p} \Psi(\vec{p}) d\vec{p} = \bra{\Psi(\vec{p})}\hat{\vec{p}} \ket{\Psi(\vec{p})} $$ 
+
+$$\langle \hat{\vec{r}} \rangle = \int \Bigl| \Psi(\vec{r}) \Bigl|^2 \vec{r} d\vec{r} = \int \Psi^* (\vec{r}) \vec{r} \Psi(\vec{r}) d\vec{r} =\int \Psi^* (\vec{r}) \varphi(\vec{r}) d\vec{r}  = \int \Psi^* (\vec{p})\Phi(\vec{p}) d\vec{p} =  \star $$
+Where in the last step we have used the Parseval theorem.
+We can now use the fact that:
+$$ \Phi(\vec{p}) = \frac{1}{\sqrt{v}} \int \vec{r} \psi{r} d\vec{r} = i \hslash \nabla_{\vec{p}} \Psi(\vec{p}).$$
+
+$$ \star =  \int \Psi(\vec{r})^* \bigl( i \hslash \nabla_{\vec{p}} \bigl) \Psi(\vec{p}) d\vec{p} = \int \Psi(\vec{r})^* \hat{\vec{r}} \Psi(\vec{p})  d\vec{p}$$
+
+\textbf{Energy (No Magnetic Fields)}
+
+$$H(\vec{p},\vec{r})) = K(\vec{p}) + V(\vec{r}) = \frac{p^2}{2m} + V(\vec{r}) = \frac{-\hslash^2 \nabla^2}{2m} + V(\vec{r})$$
+
+Now we will try to find the energy eigenvalues:
+$$H \psi(\vec{r}) = E\psi(\vec{r})$$
+$$\implies \frac{-\hslash^2}{2m} \nabla^2 \psi(\vec{r}) + V(\vec{r})\psi(\vec{r}) = E\psi(\vec{r})$$
+This is the time independent Schrödinger Equation.\\ \\
+\textbf{Free Particle} \\
+For a free particle, the potential is constant, thus it can be arbitrarily set to zero: $V(\vec{r}) = 0$
+$$\frac{-\hslash^2}{2m} \nabla^2 \psi(\vec{r}) = E\psi(\vec{r}).$$
+The following wave function is a solution to the equation.
+$$\psi(\vec{r}) = \frac{1}{\sqrt{v}}e^{ik\vec{r}}.$$
+In particular $\psi(\vec{r})$ is the eigenfunction associated with the eigenvalue $E=\frac{\hslash^2k^2}{2m}$
+We don't need to explicitly calculate it, since the energy and momentum operator commute.\\ \\ 
+\textbf{Particle in a Square Box} \\ \\
+$\psi(\vec{r}) =0$, outside the box.
+For symmetry reasons, we can factor the wave function: $\psi(\vec{r}) = X(x)Y(y)Z(z).$: 
+$$-\frac{\hslash^2}{2m} \Bigl[ \frac{\partial^2}{\partial x} + \frac{\partial^2}{\partial y}+\frac{\partial^2}{\partial z} \Bigl] X(x)Y(y)Z(z) = EX(x)Y(y)Z(z)$$
+We can assume that inside the box the potential is null.
+$$\frac{-\hslash^2}{2m} \Biggl[ Y(y)Z(z) \frac{dX(x)}{dx^2} + X(x)Z(z) \frac{dY(y)}{dy^2} + X(x)Y(y) \frac{dZ(z)}{dz^2} \Biggl]  = EX(x)Y(y)Z(z)$$
+
+$$\frac{-\hslash^2}{2m} \Biggl[ \frac{1}{X(x)} \frac{dX(x)}{dx^2} + \frac{1}{Y(y)} \frac{dY(y)}{dy^2} + \frac{1}{Z(z)} \frac{dZ(z)}{dz^2} \Biggl]  = E$$
+We can split this equation, on the three coordinates:
+$$ \frac{\hslash^2}{2m} \frac{dX(x)}{dx^2} + E_x X(x) = 0$$
+$$ \frac{\hslash^2}{2m} \frac{dY(y)}{dy^2} + E_y Y(y) = 0$$
+$$ \frac{\hslash^2}{2m} \frac{dZ(z)}{dz^2} + E_z Z(z) = 0$$
+$$E = E_x+E_y+E_z$$ \\
+The general solution, imposing the boundaries condition that $\psi(x) = \psi(L) = 0 $ for the $x$ case is: 
+$$X(x) = Asin(kx)$$
+where $k =\frac{\pi}{L}n\ , n \in \mathbb{N}.$
+With this solution we get the following eigenvalue:
+$$\implies E_x = \frac{\hslash^2k^2}{2m} = \frac{\pi^2\hslash^2}{2L^2m}n_x^2 = \frac{h^2}{8L^2m}$$
+The total energy is thus:
+$$E = \frac{h^2}{8L^2m} (n_x^2+n_y^2+n_z^2), \ \ n_x,n_y,n_z \in \mathbb{N}$$
+\includegraphics[scale = 0.4]{PIAB.png} \\ \\ 
+\textbf{Particle in a Quantum Well}\\ \\ 
+The wave function outside the well does not need to be null. The solution involves the mass of a particle in a box, and the boundary condition of continuity is imposed at the interface of the wall. 
+We try if the plane wave solution fit the equation with the boundary conditions:
+$$\frac{-\hslash^2}{2m} \nabla^2 \psi(\vec{r}) + V(\vec{r})\psi(\vec{r}) = E\psi(\vec{r}), \ \psi(x) = Ae^{ikx} $$
+Taking the double derivative we get:
+$$\frac{\hslash^2 k^2}{2m} \psi(x) + V_0 \psi(x) = E_x \psi(x) \implies \frac{\hslash^2 k^2}{2m} = E_x-V_0$$
+Thus we get:
+$$ k = \pm \sqrt{\frac{2m}{\hslash}(E_x-V_0)}$$
+
+If in this case we define:$\kappa = ik$, we get:
+$$\kappa = \pm \sqrt{\frac{2m}{\hslash}(V_0-E_x)}, \  \ \psi(x) = Ae^{\pm \kappa x}$$
+\includegraphics[scale = 0.4]{QW.jpg} \\ \\ 
+
+\section{ Lecture 11}
+
+\textbf{Quantum Tunneling} \\ \\
+\includegraphics[]{QuantumTunneling.jpg} \\ \\ 
+\url{https://spot.colorado.edu/~rehnd/heuristics/pdf/tunnelingSummary.pdf} \\
+The wave-function solution has the the following form:
+$$\psi(x) = \begin{cases}
+    Ae^{ikx} + B e^{-ikx}, \ \ x<0 \\
+    Ce^{-\kappa x}+De^{\kappa x}, \ \ 0 \leq x \leq a \\
+    t(A)Ae^{ikx}, \ \ x>0
+\end{cases}
+$$
+Substituting this solution in the Schrödinger equation, for the first two cases(x<a) we get that:
+$$ k = \pm \sqrt{\frac{2m}{\hslash}(E_x-V_0)}$$
+$$ \kappa = \frac{\sqrt{2m(V_0-E)}}{\hslash} $$
+
+We get that:
+$$p(x< \zeroslash,v>0) \varpropto |A|^2$$
+$$p(x< \zeroslash,v<0) \varpropto |B|^2$$
+$$p(x>a,v>0) \varpropto|t(A)|^2 |A|^2$$
+$$|t|^2 = \frac{p(x< \zeroslash,v>0)}{p(x> \zeroslash,v>0)}$$
+We will make some assumptions, which will make the discussion easier. Let's assume that D is negligible, the probability that the particle is reflected at the second barrier is considered null. Thus we can assume that $D=0$. Now as a boundary condition we impose the continuity of the wave function:
+$$ \begin{cases}  
+ \psi(0^+) = \psi(0^-) \implies A+B = C \\
+ \psi(a^+) = \psi(a^-) \implies Ce^{-ka} = tAe^{i\kappa a} \\
+\end{cases}
+$$
+$$\implies (A+B)e^{-ka} = tAe^{i\kappa a} \implies t = \frac{A+B}{A}e^{(-ka+i\kappa a)}$$
+$$\implies |t|^2 = \frac{|A+B|^2}{|A|^2} e^{-(ka+i\kappa a)} \cdot e^{-(ka-i\kappa a)} = \frac{|A+B|^2}{|A|^2}  e^{-2ka} = \beta e^{-2ka} $$
+$$|t|^2 = \beta e^{-2a \frac{\sqrt{2m(V_0-E)}}{\hslash}}$$
+This last value is just the tunneling probability. \\
+\textbf{Ammonia Molecule} \\ 
+$$
+\begin{cases}
+    m \frac{d^2 y_1}{dt^2} &= f(x_1 - x_2) \\
+\frac{d^2 x_1}{dt^2} &= \frac{F_1}{m_1} (x_1 - x_2) \\
+\end{cases} \implies \begin{cases}
+   \frac{d^2 x_2}{dt^2} &= -f (x_1 - x_2) \\
+   \frac{d^2 x_2}{dt^2} &= -\frac{r_2}{m_2} (x_1 - x_2) \\
+\end{cases} $$
+$$
+\frac{d^2 (x_1 - x_2)}{dt^2} = \frac{F}{m_1} (x_1 - x_2) + \frac{F}{m_2} (x_1 - x_2) \\$$
+$$\delta = x_1 - x_2 $$
+$$ \frac{d^2 \delta}{dt^2} = \biggl(\frac{1}{m_1} + \frac{1}{m_2} \biggl) F(\delta) $$
+$$m_R \frac{d2 \delta}{dt2} = F(\delta) ;\  m_R = \frac{m_1m_2}{m_1+m_2}
+$$
+We define $m_r$ reduced mass.
+
+\section{Lecture 12}
+$$\hat{H} = \frac{1}{2} \Bigl[ \frac{\hat{p}_x}{m} + kx^2 \Bigl] = \frac{1}{2} \Biggl[ \frac{-\hslash^2}{2m} \frac{\partial^2}{\partial x^2}+ kx^2 \Biggl] $$
+Let's assume that:
+$$ \psi = Ae^{-\frac{x^2}{\sigma^2}}$$
+$$\hat{H}\psi(x) = E\psi(x)$$
+We get:
+$$\frac{1}{2} \Biggl[ \frac{-\hslash}{2m} \Biggl( Ae^{-\frac{x^2}{\sigma^2}}\biggl( \frac{2x}{\sigma^2}\biggl)^2 - \frac{2}{\sigma^2} Ae^{\frac{-x^2}{\sigma^2}} \Biggl) + kx^2Ae^{-\frac{x^2}{\sigma^2}}\Biggl] = EAe^{-\frac{x^2}{\sigma^2}}$$
+By imposing  two conditions we get, one is to set $E=0$ and the other one is $x=0 $
+\begin{enumerate}
+    \item $ \ \ \frac{\hslash^2}{2m\sigma^2} = E $
+    \item $ \ \ \frac{-\hslash^2}{2m}\Biggl(\frac{2x}{\sigma^2}\Biggl)^2+ kx^2 = 0$
+    \item$\ \ \sigma^2 = \sqrt{\frac{\hslash^2}{mk}}$
+\end{enumerate}
+By "putting" $3.$ into $1.$, we obtain:
+$$E=\frac{\hslash^2}{2m}\sqrt{\frac{mk}{\hslash^2}} = \frac{1}{2}\hslash\sqrt{\frac{k}{m}} = \frac{1}{2}\hslash \omega$$
+$$\hat{H} = \frac{1}{2}\Biggl[ \frac{-\hslash^2}{2m}\frac{d}{dx^2}+kx^2 \Biggl] =\frac{1}{2}\Biggl[ \frac{-\hslash^2}{2m}\frac{d}{dx^2}+m\omega^2x^2 \Biggl] = \frac{1}{2} \Biggl[ \frac{\hat{p}_x^2}{m} + m\omega^2 x^2 \Biggl] = \frac{1}{2} \Biggl[ \pi^2 + \omega^2 q^2 \Biggl] = \frac{1}{2}(-i\pi+\omega q)(i\pi+\omega q) $$
+$$\pi = \frac{p_x}{\sqrt{m}},\ q = \sqrt{m}x$$
+
+
+$$\hat{a}^{\dag} \triangleq \bigl( -i\hat{\pi} + \omega q \bigl) \frac{1}{\sqrt{2\hslash\omega}} $$
+    
+$$\hat{a} \triangleq \bigl( i\hat{\pi} + \omega q \bigl) \frac{1}{\sqrt{2\hslash\omega}} $$
+
+$$\hat{\pi} = \frac{\hat{p}_x}{\sqrt{m}} = - \frac{i \hslash}{\sqrt{m}} \frac{d}{dx} $$
+
+$$ \hat{H} = \frac{1}{2} \biggl[ \hat{\pi}^2 + \omega^2 q^2 \biggl]$$
+\begin{align*}
+\hat{a}^{\dag} \cdot \hat{a} \psi = \frac{\hat{a}^{\dag} (i\hat{\pi} + \omega q)}{\sqrt{2\hslash \omega}} \psi = \frac{\hat{a}^{\dag}(i\hat{\pi}\psi+\omega q \psi)}{\sqrt{2\hslash \omega}} = \frac{\hat{a}^{\dag}}{\sqrt{2\hslash\omega}} \Biggl( \frac{\hslash}{\sqrt{m}} \frac{d\psi}{dx} + \omega q \psi \Biggl) = \\ = \frac{1}{2m} \Biggl[ \frac{-\hslash}{\sqrt{m}} \frac{d}{dx} \Biggl( \frac{\hslash}{\sqrt{m}} \frac{d\psi}{dx} + \omega q \psi \Biggl) + \omega q \frac{\hslash}{\sqrt{m}} \frac{d\psi}{dx} + \omega^2q^2\psi\Biggl] = \frac{1}{\hslash \omega} \hat{H} -\frac{1}{2}\psi
+\end{align*}
+
+$$\hat{a}^{\dag} = \frac{1}{\sqrt{2\hslash\omega}} ( -i\hat{\pi}+\omega q) = \frac{1}{\sqrt{2\hslash\omega}} \Bigl( -\hslash\frac{d}{dx}+ m\omega x \Bigl)$$
+
+$$\hat{a} = \frac{1}{\sqrt{2\hslash\omega}} (i\hat{\pi}+\omega q) = \frac{1}{\sqrt{2\hslash\omega}} \Bigl(\hslash\frac{d}{dx}+ m\omega x \Bigl)$$
+
+$$\hat{H} = \frac{1}{2} \hslash \omega \bigl[\hat{a}^{\dag}\hat{a} +\hat{a}\hat{a}^{\dag} \bigl] $$
+$$\hat{H} = \hslash \omega \bigl[ \hat{a}^{\dag} \hat{a} + \frac{1}{2}\bigl] $$
+$$\hat{H} = \hslash \omega \bigl[\hat{a} \hat{a}^{\dag} - \frac{1}{2}\bigl] $$
+Note that $\hat{a}$ and $\hat{a}^{\dag}$ are not Hermitian Operator. One is the adjoint operator of the other. However their product is Hermitian.
+
+$$ 0 = \hslash \omega \Bigl[ \hat{a}^{\dag} \hat{a} + \frac{1}{2} - \hat{a}^{\dag}\hat{a} + \frac{1}{2} \Bigl] $$
+$$[\hat{a},\hat{a}^{\dag}] = \hat{a}\hat{a}^{\dag} - \hat{a}^{\dag}\hat{a} = 1$$
+
+$$\hat{H}\hat{a}^{\dag} = \hslash \omega \bigl[ \hat{a}^{\dag}\hat{a}\hat{a}^{\dag}+ \frac{1}{2}\hat{a}^{\dag} \bigl] $$
+$$\hat{a}^{\dag} \hat{H} =  \hslash \omega \bigl[ \hat{a}^{\dag}\hat{a}^{\dag}\hat{a}+ \frac{1}{2}\hat{a}^{\dag} \bigl]$$
+When we subtract these two equations:
+$$ [\hat{H}, \hat{a}^{\dag}] = \hslash\omega\hat{a}^{\dag}[\hat{a}^{\dag},\hat{a}] = \hslash\omega\hat{a}^{\dag} $$
+Equivalently:
+$$[\hat{H}, \hat{a}] = -\hslash\omega\hat{a}$$
+Let's talk about different energy levels:
+$$\hat{H}\ket{n} = E_n \ket{n}$$
+$$ \hat{H}\hat{a}^{ \dag} = \hslash \omega \hat{a}^{\dag} + \hat{a}^{\dag}\hat{H}$$
+$$\hat{H}\hat{a}^{\dag} \ket{n} = \hslash \omega \hat{a}^{\dag} \ket{n} + \hat{a}^{\dag}\hat{H}\ket{n} = \hslash\omega\hat{a}^{\dag}\ket{n} + E_n \hat{a}^{\dag}\ket{n}$$
+$$\hat{H}(\hat{a}^{\dag}\ket{n}) = (\hslash\omega+E_n)(\hat{a}^{\dag}\ket{n})$$
+$$\hat{H}\ket{n+1} = (\hslash\omega + E_n ) \ket{n+1}$$
+\begin{equation*}
+\begin{rcases}
+  E_{n+1} = \hslash \omega + E_n \\
+  E_0= \frac{1}{2} \hslash \omega \\
+\end{rcases}
+\implies E_n = \hslash \omega \biggl( n + \frac{1}{2} \biggl)
+\end{equation*} 
+Similarly, for $\hat{a}$, you can demonstrate that:
+$$\hat{H}\bigl( \hat{a}\ket{n} \bigl) = [E_n -\hslash \omega ] (\hat{a}\ket{n}) = (E_n -\hslash \omega) \ket{n-1} $$
+This notation is called occupancy number representation.
+
+\section{Lecture 13}
+Assume that we are working with unitary kets, thus $\bra{n}\ket{n} = 1$.
+$$\hat{H}\hat{a}^{\dag} \ket{n} = (E_n + \hslash \omega ) \hat{a}^{\dag}\ket{n} = (E_n + \hslash \omega ) c\ket{n+1} $$
+$$\hat{H}\hat{a} \ket{n} = (E_n -\hslash \omega) \hat{a}\ket{n} = (E_n -\hslash \omega) c' \ket{n-1} $$
+\begin{flalign*}
+   c^2 = c^2 \bra{n+1}\ket{n+1} =  \biggl(\bra{n}\hat{a}^{\dag} \biggl) \biggl(\hat{a}^{\dag}\ket{n} \biggl) = c \biggl(\bra{n \hat{a}^{\dag}} \biggl)\ket{n+1} = \\ =  c \bra{\hat{a}^{\dag}n}\ket{n+1} = c \bra{n}\ket{\hat{a} (n+1)} = \bra{n}\hat{a}\hat{a}^{\dag}\ket{n} = \star
+\end{flalign*}
+Now, remembering that:
+$$\hat{H} = \hslash \omega \bigl(\hat{a}\hat{a}^{\dag}-\frac{1}{2} \bigl) = \frac{1}{\hslash \omega}\hat{H} + \frac{1}{2} = \hat{a}\hat{a}^{\dag}$$
+ \begin{equation*}
+     \star = \bra{n}\frac{1}{\hslash \omega} \hat{H}\ket{n}+\frac{1}{2} \bra{n}\ket{n} = \frac{1}{\hslash\omega}\bra{n}\hat{H}\ket{n}+\frac{1}{2} = \frac{1}{\hslash\omega}E_n + \frac{1}{2} = \frac{1}{\hslash\omega}\hslash\omega\biggl( n+\frac{1}{2} \biggl) + \frac{1}{2} = n+1.
+ \end{equation*}
+As a convention we chose the positive sign, there is non physical reason why it cannot be the opposite.
+$$\implies c = \sqrt{n+1}$$
+Reasoning in the same way:
+\begin{align*}
+    c'^2= {c'}^2 \bra{n}\ket{n} = \bigl( \bra{n}\hat{a}^{\dag}\bigl) \bigl( a\ket{n} \bigl) = \bra{n}\hat{a}^{\dag} \hat{a}\ket{n} = \bra{n}\hat{a}\hat{a}^{\dag}-1\ket{n} = \bra{n}\hat{a}\hat{a}^{\dag}\ket{n}-1 =\\ = n+1-1 = n \implies c'= \sqrt{n} \ \ \ \ \ \ \ \ \ \ \ 
+\end{align*}
+\textbf{Example}
+$$ V = \frac{1}{2}kx^2$$
+$$ \hat{a}^{\dag} \triangleq \frac{1}{\sqrt{2\hslash\omega}}(-i\hat{\pi}+\omega q) \triangleq  \frac{1}{\sqrt{2\hslash\omega}}\bigl( \frac{i}{\sqrt{m}}\hat{p}_x + \sqrt{m}\omega x \bigl) = \frac{1}{\sqrt{2\hslash m \omega}}\bigl( i \hat{p}_x + m \omega x \bigl) $$
+$$\hat{a} = \frac{1}{\sqrt{2\hslash m \omega}}\bigl(- i \hat{p}_x + m \omega x \bigl) $$
+$$\implies \hat{a}+\hat{a}^{\dag} = \frac{2}{\sqrt{2\hslash m \omega}}(m\omega x) = \sqrt{\frac{2m\omega}{\hslash}}x  \implies x = \sqrt{\frac{\hslash}{2m\omega}} (\hat{a}^{\dag}+\hat{a})$$
+$$ \langle V \rangle = \bra{n}V \ket{n} = \bra{n}\frac{1}{2}kx^2 \ket{n} = \frac{1}{2} k \frac{\hslash}{2m\omega} \bra{n}(\hat{a}^{\dag} + \hat{a})(\hat{a}^{\dag}+\hat{a})\ket{n} = \frac{1}{2}k\bra{n}\hat{a}^{\dag}\hat{a}^{\dag}+ \hat{a}^{\dag}\hat{a}+\hat{a}\hat{a}^{\dag}
++\hat{a}\hat{a}\ket{n} = \star $$ 
+The first and last term between the bra and the ket generate $\ket{n+2}$ and $\ket{n-2}$, which are orthogonal to $\ket{n}$, thus:
+$$\star = \frac{1}{2}k\bra{n}\hat{a}^{\dag}\hat{a}+\hat{a}\hat{a}^{\dag} \ket{n} = \star \star$$
+Remembering that:
+$$\hat{H} = \frac{\hslash\omega}{2}(\hat{a}^{\dag}\hat{a}+\hat{a}\hat{a}^{\dag}) \implies \hat{a}^{\dag}\hat{a}+\hat{a}\hat{a}^{\dag} = \frac{2\hat{H}}{\hslash\omega} $$
+$$ \star \star = \frac{1}{2} k \bra{n}\frac{2\hat{H}}{\hslash\omega}\ket{n}\frac{\hslash}{2m\omega}=\frac{k}{2m\omega^2}\bra{n}\hat{H}\ket{n}=\frac{\omega^2}{2\omega^2}\bra{n}\hat{H}\ket{n}=\frac{1}{2}\langle E_n \rangle = \frac{1}{2}E_n$$
+$$\langle K \rangle = E_{TOT} -\langle V \rangle = \frac{1}{2} E_n$$
+Equipartition of energy theorem for harmonic Oscillator.
+
+$$ \hat{a}^{\dag}(\hat{a} \ket{n}) = \hat{a}^{\dag}\sqrt{n}\ket{n-1} =\sqrt{n}\hat{a}\ket{n-1}= \sqrt{n}\sqrt{n}\ket{n} = n \ket{n}$$
+Thus we call $\hat{a}^{\dag}\hat{a} = \hat{n}$, the occupation  number operator.\\  \\ 
+\textbf{Harmonic Oscillator CO2 }\\ \\
+We will describe at first the system from a classical point of view.
+Notation:$ x_c,x_1,x_2 $ indicate the position of the carbon atom, and the $ 1^{st},2^{nd} $ oxygen atom respectively.
+$$F_x = F(x_c-x_1) = F_x(\delta)$$
+$$F_x  \cong F_x(\delta_0)+ \frac{dF_x(\delta_0)}{d\delta}(\delta-\delta_0) = -k (\delta-\delta_0)$$
+Here $\delta_0$ identifies the equilibrium distance, thus the force $F(\delta_0) = 0.$
+We can write:
+$$m_0 \frac{d^2x_1}{dt^2} = -k(x_1-x_c)$$
+$$m_0 \frac{d^2x_2}{dt^2} = -k(x_2-x_c)$$
+$$m_0 \frac{d^2x_c}{dt^2} = -k(x_c-x_1)-k(x_c-x_2)$$
+$$\implies\frac{d^2}{dt^2} (m_o x_1+m_0x_2+m_c x_c) = \frac{dx_{CM}}{dx^2} = 0$$
+From the first two equations:
+$$m_0 \frac{d^2x_1}{dt^2}-mo \frac{d^2x_2}{dt^2} = -k(x_1-x_c)+k(x_2-x_c)$$
+$$\implies m_0 \frac{d^2}{dt^2}(x_1-x_0) = -k(x_1-x_0)$$
+$$ m_0 \frac{d^2}{dt^2}A_{oo} = -kA_{00}$$
+$$ \frac{d^2}{dt^2}A_{oo} +\frac{k}{m_0}A_{00}=0 \implies \omega_\gamma = \sqrt{\frac{k}{m_0}}$$
+This is the first oscillating mode. There is another one. From the $3^{rd}$ equation we get:
+$$m_0 \frac{d^2x_c}{dt^2} = -k(2x_c-x_1-x_2)$$
+$$\implies \frac{dx_1^2}{dt^2}+\frac{dx_2^2}{dt^2}-2\frac{dx_c^2}{dt^2} = -\frac{k}{m_0} (x_1-x_c)-\frac{k}{m_0} (x_2-x_c)+2\frac{k}{m_0}(2x_c-x_1-x_2)$$
+$$\frac{d^2}{dt^2}(x_1+x_2-2x_c) = -\frac{k}{m_0}(x_1+x_2-2x_c)+\frac{2k}{m_c}(2x_c-x_1-x_2)$$
+$$\frac{d^2}{dt^2}(x_1+x_2-2x_c) = -\biggl(\frac{k}{m_0}+\frac{2k}{m_c}\biggl)(x_1+x_2-2x_c)$$
+$$\frac{d^2}{dt^2}(x_1+x_2-2x_c) + \biggl(\frac{k}{m_0}+\frac{2k}{m_c}\biggl)\biggl(x_1+x_2-2x_c\biggl) = 0 \implies\omega_u = \sqrt{\frac{k(m_c+2m_0)}{m_0m_c}}$$
+\section{Lecture 14} 
+From now on we will consider time evolution, so we will introduce the time variable. 
+Let's introduce the time translation operator, with the following properties:
+$$\hat{t}_{\tau} \ket{u(t)} = \ket{u(t+\tau)}$$
+$$\hat{t}_{\tau}(\ket{u(t)}+\ket{v(t)}) = \ket{u(t+\tau)}+ \ket{v(t+\tau)}$$
+$$\hat{t}_{\tau}(\alpha\ket{u(t)}) = \alpha \ket{u(t+\tau)}$$
+$$\hat{t}_{\tau_1} \hat{t}_{\tau_2} \ket{u(t)} = \hat{t}_{\tau_1}\ket{u(t+\tau_2)}=\ket{u(t+\tau_1+\tau_2)}= \hat{t}_{\tau_2}\hat{t}_{\tau_1}\ket{u(t)}$$
+$$\hat{t}_{\tau_1}\ket{\psi(t)} = \beta_{\tau_1}\ket{\psi(t)}= \ket{\psi(t+\tau_1)}$$
+$$\hat{t}_{\tau_2}\ket{\psi(t)} = \beta_{\tau_2}\ket{\psi(t)}= \ket{\psi(t+\tau_2)}$$
+$$\beta_{\tau_1}\beta_{\tau_2}\ket{\psi(t)}=\hat{t}_{\tau_1} \hat{t}_{\tau_2} \ket{\psi(t)} = \hat{t}_{\tau_1+\tau_2} \ket{\psi(t)} = \beta_{\tau_1+\tau_2}\ket{\psi(t)}$$
+$$\implies \beta_{\tau_1+\tau_2} = \beta(\tau_1+\tau_2) = \beta_{\tau_1}\beta_{\tau_2} = \beta(\tau_1)\beta(\tau_2) \implies \beta(t) = e^{-i\omega t}, \omega \in \mathbb{R}$$
+The condition of $\omega$ belonging to the reals, is due to the fact that it must hold the following: $|\beta(t)|^2 = 1$.
+$$\ket{\psi(t)} = \hat{t}_\tau \ket{\psi(t=0)} = \beta(t)\ket{\psi(t=0)}=e^{-i\omega t} \ket{\psi(t=0)}$$
+Let's remember that, the conservation of energy imposes:
+$$\hat{H}\ket{\psi(t=0)} = E \ket{\psi(t=0)} \implies \hat{H}\hat{t}_{\tau_2}\ket{\psi(t=0)} = E \hat{t}_{\tau_2} \ket{\psi(t=0)}$$
+$$\hat{H} \ket{\psi(t=0)} = E \ket{\psi(t=0)} $$
+$$\hat{H} \hat{t}_{\tau_2} \ket{\psi(t=0)} = E \hat{t}_{\tau_2} \ket{\psi(t=0)}$$
+The second equation can be rewritten as:
+$$\hat{t}_{\tau_2}^{-1} \hat{H} \hat{t}_{\tau_2} \ket{\psi(t=0)} = E \ket{\psi(t=0)}
+$$
+Comparing the first and the rewritten second equation, we can see that:
+$$\hat{t}_{\tau_2}^{-1} \hat{H} \hat{t}_{\tau_2} = \hat{H}$$
+Multiplying both sides by $\hat{t}_{\tau_2}$, we get:
+$$
+\hat{H} \hat{t}_{\tau_2} = \hat{t}_{\tau_2} \hat{H}
+$$
+So we have proved that the time translation operator and the Hamiltonian operator commute, thus they share the same set of eigenfunctions. So there is a one-to-one correspondence of the eigenfunctions, thus $\omega  = f(E)$ must be a function of the energy.\\
+Let's assume to have two non interacting particles, so there is no energy associated with the interaction. The total energy is the sum of the energies of the single particles.
+$$\ket{\psi_{TOT}} = \ket{\psi_1(t)}\ket{\psi_2(t)} = \ket{\psi_1(t=0)}e^{-i\omega_1t}\ket{\psi_2(t=0)}e^{-i\omega_2 t} = \ket{\psi_1(t=0)}\ket{\psi_2(t=0)}e^{-i(\omega_1+\omega_2)t}$$
+$$\implies f(E_1+E_2) = \omega_1 + \omega_2 = f(E_1)+ f(E_2) \implies \omega \varpropto E$$
+\textbf{Photons} \\
+Photons have no mass, so $E = \sqrt{c^2p^2+m^2c^4} = \sqrt{c^2p^2} = cp$
+$$e^{i(kx-\omega t)}, \ c = \frac{\omega}{k}, \ p = \hslash k \implies p =  \frac{\hslash\omega}{c}, E = \hslash \omega$$
+$$\hat{H}\ket{\psi(t=0)} = E \ket{\psi(t=0)}  \implies \ket{\psi(t)} = e^{-i\frac{E}{\hslash}t} \ket{\psi(t=0)}$$
+Remember that we are assuming that $\psi$ is an eigenfunction of the Hamiltonian operator.
+For a generic quantum state, the following holds true:
+$$\ket{u(t)} = \sum_j \alpha_j e^{-i\frac{E_j}{\hslash}t} \ket{\psi_j(t=0)}$$
+$$\ket{u(t=0)} = \sum_j \alpha_j \ket{\psi_j(t=0)}$$
+$$H\ket{\psi_j(t=0)} = E_j \ket{\psi_j(t=0)}$$ \\ 
+$$\hat{H} = \begin{bmatrix}
+    0 & -\frac{\Delta E}{2} \\
+    -\frac{\Delta E}{2} & 0 \\
+\end{bmatrix} \begin{bmatrix}
+    \alpha_1  \\
+      \alpha_2 \\
+\end{bmatrix} = E \begin{bmatrix}
+    \alpha_1  \\
+      \alpha_2 \\
+\end{bmatrix} \implies E = \pm \frac{\Delta E}{2}$$ 
+$$\frac{1}{\sqrt{2}}  \begin{bmatrix}
+    1 \\
+    1 \\
+\end{bmatrix} = \ket{g}, \frac{1}{\sqrt{2}} = \begin{bmatrix}
+    1 \\
+    -1 \\
+\end{bmatrix} = \ket{u}$$
+
+$$\ket{u(t=0)} = \alpha \ket{g} + \beta \ket{u}$$
+$$|\alpha|^2+|\beta|^2 = 1$$
+$$\ket{u(t)}= \alpha e^{i \frac{\Delta E}{2 \hslash}t} \ket{g}+ \beta e^{-i \frac{\Delta E}{2 \hslash}t} \ket{u}$$
+$$\langle x \rangle  = \bra{u(t)} \hat{x} \ket{u(t)} =\ket{u(t)}^T \begin{bmatrix}
+    x_0 & 0 \\
+    0 & -x_0 \\
+\end{bmatrix} \ket{u(t)} =2 x_0 \alpha \beta \biggl( e^{i \frac{\Delta E t}{2 \hslash}} \biggl) =2 x_0 \alpha \beta cos\biggl(\frac{\Delta E}{\hslash}t\biggl)$$
+The results follows if we assume that $\alpha, \beta \in \mathbb{R} \implies a = \alpha^*, \beta = \beta^*$. (Not sure if this condition is necessary, or if it only makes the calculation easier).
+
+\section{Lecture 15}
+Let $E_j' = E_j + E_0$.
+$$\ket{u(t)} = \sum_j \alpha_j e^{-i\frac{E_j}{\hslash}t} \ket{\psi_j}$$
+$$\ket{u(t)} = \sum_j \alpha_j e^{-i\frac{E_j'-E_0}{\hslash}t} \ket{\psi_j} $$
+$$\ket{u(t)} = \Biggl( \sum_j \alpha_j e^{-i\frac{E_j'}{\hslash}t} \ket{\psi_J} \Biggl) e^{i \frac{E_0}{\hslash}t} = \ket{u'(t)}  e^{i \frac{E_0}{\hslash}t} $$
+Obviously $\ket{u(t)}$ and $\ket{u'(t)}$ represent the same quantum state, so $E_0$ can be chosen arbitrarily. \\ \\
+\textbf{Dynamics of a free particle}
+$$\hat{H} = \frac{-\hslash^2}{2m} \nabla^2$$
+In one dimension:
+$$\hat{H}\psi{x} = E \psi(x) \implies \frac{-\hslash^2}{2m} \frac{d^2 \psi(x)}{dx} - E \psi(x) = 0$$
+The solution is $\psi(x) = e^{ikx}$, and if we introduce time dependence we get: $ \psi(x,t) = e^{i(kx-\omega t)}$ with: $ \hslash k = p, \hslash \omega = E.$
+
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel={$x$},
+    ylabel={$y$},
+    legend pos=north east,
+    title={Real and Imaginary Parts of $e^{i(kx-\omega t)}$},
+    axis lines=center,
+    axis line style={-latex}]
+\addplot[domain=0:10, samples=100, red] {cos(deg(x))};
+\addlegendentry{Real part: $\cos(kx-\omega t)$}
+\addplot[domain=0:10, samples=100, blue] {sin(deg(x))};
+\addlegendentry{Imaginary part: $\sin(kx-\omega t)$}
+\end{axis}
+\end{tikzpicture} \\
+Let's apply a change of coordinate, with the observer moving at the same speed of the wave:
+$$x'=x-vt$$
+This value: $ e^{i(kx'+kvt-\omega t)}$ is constant when $kv = \omega \implies v = \frac{\omega}{k}$.
+$$\hslash k = p$$
+$$\hslash \omega = E= \frac{p^2}{2m} = \frac{pv}{2} \implies v = \frac{2E}{p} = 2\frac{\hslash \omega}{\hslash k} = \frac{2\omega}{k}\neq \frac{\omega}{k}$$
+So there is a paradox, because we obtain two different velocities.
+Let's switch to momentum representation.
+$$\Psi(p,t) = \Psi(p) e^{-i\omega (p) t}$$
+$$\langle \hat{X} \rangle = \bra{\Psi(p,t)} \hat{X} \ket{\Psi (p,t)}$$
+$$\hat{X}\Psi(p,t) = i\hslash\frac{d}{dp} \biggl[ \Psi(p) e^{-i\omega(p)t} \biggl] = i \hslash \biggl[ e^{-i\omega (p) t} \frac{d \Psi(p)}{dp} + \Psi(p) \biggl(-it \frac{d\omega(p)}{dp} \biggl)  e^{-i \omega(p)t} \biggl] $$
+
+\begin{flalign*}
+& \bra{\Psi(p,t)} \hat{X} \ket{\Psi(p,t)} = i \hslash e^{i \omega(p)t} \bra{\Psi(p)} \ket{ \frac{d\Psi(p)}{dp} + \Psi(p) \biggl( -it \frac{d\omega(p)}{dp} \biggl) } e^{-i \omega(p)t} = &\\
+& i \hslash \bra{\Psi(p)} \ket{ \frac{d\Psi(p)}{dp}} + \hslash t \bra{\Psi(p)}\frac{d\omega(p)}{dp}\ket{\Psi(p)}= \bra{\Psi(p)} i\hslash \frac{d}{dp} \ket{\Psi(p)} + \hslash t   \bra{\Psi(p)} \frac{p}{m\hslash} \ket{\Psi(p)} = &\\ 
+& \langle  \hat{X} \rangle_{t=0} + \frac{t}{m}  \bra{\Psi(p)} p \ket{\Psi(p)} = \langle \hat{X} \rangle_{t=0} + \frac{t}{m} \langle \hat{p} \rangle = \langle x(t=0) \rangle + \langle \hat{v} \rangle  t 
+\end{flalign*}
+$$\hat{v} = \hslash \frac{d\omega(p)}{dp} = \frac{d\omega}{dk} = "group \ velocity" \neq \frac{\omega}{k} = "phase \ velocity" $$
+\includegraphics[scale = 0.5]{phase-group-velocity.png} \\ \\ 
+In free space, a particle become more dispersed.
+$$\Psi(p,t) = e^{-i\omega(p)t}$$
+$$\ket{u(t)} = \sum_j \alpha_j e^{-i\frac{E_j}{\hslash}t}$$
+$$\hat{H}\ket{\psi_j} = E_j \ket{\psi_j}$$,
+$$u(t+\Delta t) = \sum_j \alpha_j e^{-i\frac{E_j}{\hslash}(t+\Delta t)}\ket{\psi_j}$$
+$$\implies \frac{\ket{u(t+\Delta t)} - \ket{u(t)}}{\Delta t} = \sum_j \alpha_j e^{\frac{-iE_j t}{\hslash}}  \frac{e^{\frac{-iE_j\Delta t}{\hslash}}-1}{\Delta t} \ket{\psi_j}$$
+For $t \longrightarrow 0$:
+$$\frac{ \partial \ket{u(t)}}{\partial t} = -\frac{i}{\hslash} \sum_j \alpha_j e^{\frac{-iE_jt}{\hslash}} E_j \ket{\psi_j}  \implies \frac{\partial\ket{u(t)}}{\partial t} = -\frac{i}{\hslash}\hat{H}\sum_j \alpha_j e^{\frac{-iE_j t}{\hslash}}\ket{\psi_j}$$
+We finally get the time dependent Schrodinger Equation:
+$$\frac{ \partial \ket{u(t)}}{\partial t} = \frac{-i}{\hslash}\hat{H}\ket{u(t)} \implies \hat{H} \ket{u(t)} = \hslash i \frac{\partial \ket{u(t)}}{\partial t}$$
+If we can factor: $\ket{u(t)} = \psi(x) T(t)$, and $\hat{H}$ doesn't depend on time, so $\hat{H}$ only act on $\psi$  we get:
+$$\hat{H}\psi(x) T(t) = i \hslash \frac{\partial}{\partial t} \bigl[ \psi(x,t) \bigl] \implies T(t) \hat{H}\psi(x) = i \hslash \psi(x) \frac{\partial}{\partial t} T(t) \implies \hat{H} = i \hslash \frac{1}{T(t)} \frac{d T(t)}{dt} = E$$
+The left term doesn't depend on time, the right one doesn't depend on position, so they must me constant, so $E=c$.
+We obtain again the time independent Shrodinger Equation.
+$$\hat{H}\psi(x) = E \psi(x)$$
+$$i \hslash \frac{dT(t)}{dt} = E T(t)$$
+$$T(t) \varpropto e^{-\frac{E}{\hslash}t}$$
+
+\section{Lecture 16}
+\textbf{Ehrenfest Theorem}
+
+$$\frac{d}{dt} \langle \hat{O} \rangle = \frac{d}{dt} \bra{u} \hat{O} \ket{u} = \bra{\frac{\partial u}{\partial t}} \hat{O} \ket{u} + \bra{u} \frac{\partial \hat{O}}{\partial t} \ket{u} + \bra{u} \hat{O} \ket{\frac{\partial }{\partial t}u}$$
+From the time dependent Shrodinger equation we have that: $\frac{\partial u}{\partial t} = \frac{1}{i\hslash} \hat{H}\ket{u} $
+Thus, substituting and using the complex conjugate when switching from a ket to a bra:
+$$\frac{d}{dt} \langle \hat{O} \rangle = \bra{-\frac{1}{i\hslash} \hat{H} u} \hat{O} \ket{u} + \biggl\langle \frac{\partial \hat{O}}{\partial t} \biggl\rangle + \bra{u} \hat{O} \ket{\frac{1}{i\hslash} \hat{H} u}  = -\frac{1}{i\hslash}  \bra{\hat{H} u} \hat{O} \ket{u} + \biggl\langle \frac{\partial \hat{O}}{\partial t} \biggl\rangle + \frac{1}{i\hslash} \bra{u} \hat{O}  \ket{\hat{H} u} 
+$$
+We can now exploit the Hermeticity of the operator, and we get:
+$$\frac{d}{dt} \langle \hat{O} \rangle = -\frac{1}{i\hslash}  \bra{ u} \hat{H}\hat{O} \ket{u} + \biggl\langle \frac{\partial \hat{O}}{\partial t} \biggl\rangle + \frac{1}{i\hslash} \bra{u} \hat{O} \hat{H} \ket{u} = \frac{1}{i\hslash} \bra{u} \hat{O}\hat{H}- \hat{H}\hat{O} \ket{u} + \biggl\langle \frac{\partial \hat{O}}{\partial t} \biggl\rangle = \frac{1}{i\hslash}\bra{u}[\hat{O}, \hat{H}] \ket{u} +  \biggl\langle \frac{\partial \hat{O}}{\partial t} \biggl\rangle $$
+For the position operator the last term is null, since position operator doesn't depend on time:
+$$\frac{dx}{dt} =  \frac{1}{i\hslash}\bra{u}[x, \hat{H}] \ket{u}$$
+Let's remember that:
+$[x,\hat{H}] = [x, \hat{K}+ \hat{V}] = [x,\hat{K}]+ [x, \hat{V}] = [x,\hat{K}] $, since  scalar operators always commute. $\hat{x}$ is the multiplication by the coordinate x, while $\hat{V}$ is the multiplication by the scalar potential energy.
+
+\begin{flalign*}
+[x,\hat{K}] \psi(x) = \frac{-\hslash^2}{2m} \biggl[ x \frac{d^2 \psi(x)}{dx^2} - \frac{d^2}{dx^2} x \psi(x) \biggl] = \frac{-\hslash^2}{2m} \biggl[ x \frac{d^2 \psi(x)}{dx^2} -  \frac{d}{dx} \bigl( \psi(x) + x \frac{d}{dx} \psi(x) \bigl) \biggl] = \\   \frac{-\hslash^2}{2m} \biggl[ x \frac{d^2 \psi(x)}{dx^2} -  \frac{d\psi(x)}{dx}  -  \frac{d\psi(x)}{dx} - x \frac{d^2 \psi(x)}{dx^2} \biggl] = \frac{\hslash^2}{m} \frac{d\psi(x)}{dx}= i \frac{\hslash}{m} \bigl[ -i\hslash \frac{d}{dx} \bigl] \psi(x) = \frac{i \hslash}{m} \hat{p}_x \psi(x)
+\end{flalign*}
+
+$$\frac{d}{dt} \langle \hat{x} \rangle = \frac{1}{i \hslash} \bra{u} [x, \hat{H} ] \ket{u}  = \frac{1}{i \hslash} \bra{u} \frac{i \hslash}{m} \hat{p}_x \ket{u} = \bra{u}\frac{\hat{p}_x}{m} \ket{u}  = \bra{u} \hat{v}_x \ket{u} = \langle v_x \rangle  $$
+
+\begin{align*}
+ [ \hat{p}_x, V ] \psi(x) = \hat{p}_x V(x) \psi(x) - V(x)\hat{p}_x \psi(x) = -i \hslash  \biggl\{ \frac{d}{dx} [V(x)\psi(x)] - V(x) \frac{d\psi(x)}{dx} \biggl\} = \\ = -i \hslash  \biggl\{ \psi(x) \frac{dV(x)}{dx}+ V(x) \frac{d\psi(x)}{dx} - V(x) \frac{d\psi(x)}{dx} \biggl\} = - i \hslash \psi(x) \frac{dV(x)}{dx}   = i \hslash F_x \psi(x) \implies [\hat{p}_x,\hat{H}] = i \hslash F_x
+\end{align*}
+$$[\hat{p}_x,\hat{H}] = [\hat{p}_x, \hat{K} + \hat{V}] = [ \hat{p}_x, \hat{K} ] + [ \hat{p}_x, \hat{V} ] = \biggl[\hat{p}_x, \frac{\hat{p}_x^2}{2m} \biggl] +   [ \hat{p}_x, \hat{V} ] = 0 +  [ \hat{p}_x, \hat{V} ]  $$
+$$\frac{d\langle \hat{p}_x \rangle}{dt} = \frac{1}{i\hslash} \bra{u} [\hat{p}_x,\hat{H}] \ket{u} + \biggl\langle \frac{dp_x}{dt} \biggl\rangle = \frac{1}{i\hslash} \bra{u} [\hat{p}_x,\hat{H}] \ket{u} + 0$$
+$$\frac{d\langle p_x \rangle}{dx} = \frac{1}{i \hslash} \bra{u} i \hslash F_x \ket{u} = \langle F_x \rangle $$
+This result can be obtained for every axis:
+$$m \frac{d\langle \vec{v} \rangle }{dt} = \langle \vec{F} \rangle  $$
+$$ \frac{d\langle \vec{r} \rangle }{dt} = \langle \vec{v} \rangle  $$
+\textbf{Dynamics} \\ 
+Let's remember that: $\ket{u(t)} = \sum_j \alpha_j e^{\frac{-i E_j t}{\hslash}} \ket{\psi_j} $,  where $\hat{H} \ket{\psi}_j = E_j \ket{\psi_j}.$
+$$e^{\hat{A}} = 1 + \hat{A} + \frac{\hat{A}^2}{2} + \frac{\hat{A}^3}{3!}+... $$
+Thus:$$ $$
+$$e^{-i\frac{E_j}{\hslash}t}\ket{\psi_j} =\Biggl(1-i\frac{E_j}{\hslash}t+\biggl(\frac{-iE_jt}{\hslash}\biggl)^2 \frac{1}{2}  + \cdots \Biggl) \ket{\psi_j} =$$
+$$= \Biggl( 1-i\frac{\hat{H}t}{\hslash}+ \biggl( -i \frac{\hat{H}t}{\hslash}\biggl)^2 \frac{1}{2}+ \biggl( -i \frac{\hat{H}t}{\hslash}\biggl)^3\frac{1}{6}+ \cdots \Biggl) \ket{\psi_j}=e^{-i\frac{\hat{H}}{\hslash}}\ket{\psi(j)}$$
+So we can write:
+$$\ket{u(t)} = \sum_j \alpha_j e^{\frac{-i E_j t}{\hslash}} \ket{\psi_j} = \sum_j \alpha_j e^{-\frac{i \hat{H}t}{\hslash}} \ket{\psi_j} =  e^{-\frac{i \hat{H}t}{\hslash}} \sum_j \alpha_j \ket{\psi_j} = e^{-\frac{i \hat{H}t}{\hslash}} \ket{u(t=0)}  $$
+Now we will use this fact:
+\begin{flalign*}
+    \bra{u(t)} \ket{u(t)} = ||u(t)||^2 = \bra{u(t=0) e^{\frac{-i\hat{H}t}{\hslash}}}  \ket{e^{\frac{-i\hat{H}t}{\hslash}} u(t=0)} =  \bra{u(t=0) }  \ket{e^{\frac{i\hat{H}t}{\hslash}}e^{\frac{-i\hat{H}t}{\hslash}} u(t=0)} = ||u(t=0)||^2
+\end{flalign*}
+This is called the Schrodinger Picture.
+Now we will explore the Heisenberg Picture. We are fixing the time in this instance, since the dynamics is completely deterministic.
+\begin{align*}
+    \langle \hat{O}_H(t) \rangle = \bra{u} \hat{O}_H \ket{u} = \bra{u} e^{\frac{i \hat{H} t}{\hslash}} \hat{O}_s e^{-\frac{i \hat{H} t}{\hslash}} \ket{u} = \bra{e^{-\frac{i \hat{H} t}{\hslash}}u} \hat{O}_s\ket{ e^{-\frac{i \hat{H} t}{\hslash}} u} =  \bra{u(t)} \hat{O}_s \ket{u(t)}
+\end{align*}
+
+It is possible to derive that:
+$$\frac{d \hat{O}_H}{dt} = \frac{1}{i\hslash} \bigl[ \hat{O}_H, \hat{H} \bigl] + \frac{\partial \hat{O}_s}{\partial t}$$
+\textbf{Angular Momentum} \\
+We will work in cylindrical coordinates. So:
+$$x= \rho cos\theta$$
+$$y = \rho \sin\theta$$
+$$z= z$$
+$$-i \hslash \frac{\partial}{\partial \theta} = - i \hslash \biggl( \frac{\partial x}{\partial \theta} \frac{\partial}{\partial x} + \frac{\partial y}{\partial \theta} \frac{\partial}{\partial y} \biggl) = - i \hslash \biggl( -y \frac{\partial}{\partial x} + x \frac{\partial}{\partial y} \biggl) = - y \hat{p}_x + x \hat{p}_y = \hat{L}_z$$
+
+\section{Lecture 17}
+$$\hat{L}_z \triangleq y \hat{p}_z - z \hat{p}_y = - i \hslash \frac{\partial}{\partial \varphi_x}$$
+$$\hat{L}_y \triangleq z \hat{p}_x - x \hat{p}_z = - i \hslash \frac{\partial}{\partial \varphi_y}$$
+$$\hat{L}_z \triangleq x \hat{p}_y - y \hat{p}_x = - i \hslash \frac{\partial}{\partial \varphi_z}$$
+Since these operators are coupled, they don't commute. It can be verified that:
+$$[\hat{L}_x, \hat{L}_y ] = i \hslash \hat{L}_z$$
+$$[ \hat{L}_y, \hat{L}_z] = i \hslash \hat{L}_x$$
+$$[ \hat{L}_z, \hat{L}_x ] = i \hslash \hat{L}_y$$
+Due to the uncertainty principle, we can't masure more than one component at the same time.
+Now we will solve the eigen-equation:
+$$\hat{L}_z \varphi(\rho,\theta,\phi) = L_z \varphi(\rho,\theta,\phi)$$
+$$- i \hslash\frac{\partial}{\partial \phi} \varphi(\rho, \theta, \phi)= L_z \varphi(\rho, \theta, \phi), \ \ \  \varphi(\rho,\theta,\phi) = \psi(\rho,\theta) \xi(\phi) $$
+$$\implies  -i \hslash \frac{d}{d\phi} \xi(\phi) = L_z \xi(\phi) \implies \xi(\phi) = c e^{im\phi}$$
+$$ \implies L_z = \hslash m$$
+We impose that: $e^{im\Phi} = e^{im(\phi + 2 \pi)}, \ m = 0 \in \mathbf{Z} $
+In reality, the condition must be imposed on the squared value of the wave-function, so it should be $e^{im\Phi} = e^{im(\phi + 4 \pi)}, \ m = 0, \pm \frac{1}{2}, 1, \frac{3}{2}, 2, \frac{3}{2},...$. For the non integers $m$, there is an ambiguity on the wave function, since we get two different values. For the time being, we will restrict our analysis to the previous conditions, with only integer coefficients.
+$$\hat{L}_z \ket{m} = \hslash m \ket{m} $$
+Definition: $ \hat{L}_{\pm} \triangleq \hat{L}_x \pm  i \hat{L}_y$
+$$\hat{L}_z \hat{L}_{\pm} \ket{m} = \hat{L}_z (\hat{L}_x \pm i \hat{L}_y) \ket{m} $$
+From the commutation relations:
+$$[ \hat{L}_y, \hat{L}_z] = i \hslash \hat{L}_x \implies \hat{L}_z \hat{L}_y = -i \hslash \hat{L}_x + \hat{L}_y\hat{L}_z $$
+$$[ \hat{L}_z, \hat{L}_x ] = i \hslash \hat{L}_y \implies \hat{L}_z \hat{L}_x = i \hslash \hat{L}_y + \hat{L}_x\hat{L}_z $$
+\begin{flalign*}
+ \hat{L}_z \hat{L}_{\pm} \ket{m} = \hat{L}_z (\hat{L}_x \pm i \hat{L}_y) \ket{m} = i \hslash \hat{L}_y \ket{m} + \hat{L}_x \hat{L}_z \ket{m} \pm i (-i\hslash\hat{L}_x \ket{m} + \hat{L}_y \hat{L}_z \ket{m})   \\ = i \hslash \hat{L}_y \ket{m} + \hat{L}_x (\hslash m) \ket{m} \pm i (-i\hslash\hat{L}_x \ket{m} + \hslash m i\hat{L}_y \ket{m} )=  \hslash (i \hat{L}_y + m \hat{L}_x \pm \hat{L}_x \pm mi\hat{L}_y ) \ket{m} = \\ = \hslash [(m \pm 1) \hat{L}_x \pm i(m\pm 1) \hat{L}_y]\ket{m} = \hslash (m \pm 1) (\hat{L}_{\pm}\ket{m}) = \hslash (m \pm 1)\cdot c \ket{m+1} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+\end{flalign*}
+Let's define another operator:
+$$\hat{L}^2 = \hat{L}_z^2+ \hat{L}_y^2+ \hat{L}_z^2$$
+The following commutation relations hold:
+$$[\hat{L}^2, \hat{L}_x] = [\hat{L}^2, \hat{L}_y] = [\hat{L}^2, \hat{L}_z] = 0 \implies [\hat{L}^2, \hat{L}_+] = [\hat{L}^2, \hat{L}_-] = 0 $$
+The operators share eigenvectors, thus, if: $\hat{L}_z \ket{m} = \hslash m \ket{m}$
+$$\implies \hat{L}^2 \ket{m} = \hslash^2 \lambda(m) \ket{m} \implies \bra{m} \hat{L}^2 \ket{m} = \hslash^2 \lambda(m)$$
+$$\implies \bra{m} \hat{L}_z^2 + \hat{L}_y^2 + \hat{L}_x^2 \ket{m} = \bra{m} \hat{L}_z^2 \ket{m} + \bra{m} \hat{L}^2_y\ket{m}+ \bra{m}\hat{L}_x^2 \ket{m} = \hslash^2 m^2 + \langle L_y^2 \rangle + \langle L_x^2 \rangle$$
+From the previous expressions it is possible to conclude that:
+$$\hslash^2 \lambda(m) - \hslash^2m^2 = \langle \hat{L}_y^2 \rangle + \langle \hat{L}_x^2 \rangle > 0 \implies \lambda(m) - m^2 > 0 \implies |m| \leq \sqrt{\lambda(m)}$$
+
+$$\hat{L}^2 = \hat{L}_z^2 + \hat{L}_y^2+ \hat{L}_x^2$$
+$$\hat{L}_+ = \hat{L}_x + i \hat{L}_y$$
+$$\hat{L}_- = \hat{L}_x - i \hat{L}_y$$
+$\implies \hat{L}^2 = \hat{L}_z + \frac{1}{2} (\hat{L}_+ \hat{L}_- + \hat{L}_-\hat{L}_+)$. We also know that $[\hat{L}_+,\hat{L}_-] = 2 \hslash \hat{L}_z$, thus:
+$$\hat{L}^2 = \hat{L}_z + \frac{1}{2} ( 2 \hslash\hat{L}_z + \hat{L}_-\hat{L}_+ + \hat{L}_-\hat{L}_+ ) = \hat{L}_z^2+ \hslash \hat{L}_z + \hat{L}_-\hat{L}_+$$
+We introduce the following notation:
+$$\hat{L}^2 \ket{\lambda(m),m} = \hslash^2 \lambda(m) \ket{\lambda(m),m}$$
+$$\hat{L}_z \ket{\lambda(m),m} = \hslash m \ket{\lambda(m),m}$$
+and introduce  $l = m_{MAX}$ and: 
+$$\hat{L}^2 \ket{\lambda(l),l} = \hslash^2 \lambda(l) \ket{\lambda(l),l}$$
+$$\hat{L}_z \ket{\lambda(l),l} = \hslash l \ket{\lambda(l),l}$$
+$$\hat{L}^2 \ket{\lambda(l),l} = \hat{L}_z^2 \ket{\lambda(l),l}+ \hslash \hat{L}_z \ket{\lambda(l),l} + \hat{L}_-\hat{L}_+ \ket{\lambda(l),l} =( \hslash^2 l^2 + \hslash^2 l + 0) \ket{\lambda(l),l} $$
+The last term is $0$, since $\nexists \ l+1$ because $l = m_{MAX}$ and "higher states" do not exist. It also holds that
+$$\hat{L}^2 \ket{\lambda(l),l} = \hslash^2 l (l+1) \ket{\lambda(l),l}$$
+$$\hat{L}^2(\hat{L}_- \ket{\lambda(l),l} = c \hat{L}^2 \ket{\lambda(l),l-1}$$
+$$\hat{L}_- \hat{L}^2 \ket{\lambda(l),l} = \hslash^2 l (l+1) \hat{L}_- \ket{\lambda(l),l} = c \hslash^2 l(l+1)\ket{\lambda(l),l-1}$$
+And since the two operators commute, we get that $\lambda(m)= \lambda = l(l+1)$ \\
+\textbf{Resume} \\
+$\hat{L}^2 $and $\hat{L}_z$ commute, so they share the same eigenstates, which can be classified with two integers numbers, assuming the form $\ket{l,m}$, with $|m| \leq l$, where:
+$$\hat{L}_z \ket{l,m} = \hslash m \ket{l,m}$$
+$$\hat{L}^2 \ket{l,m} = \hslash^2 l (l+1) \ket{l,m}$$
+$$\ket{l,m} = \varphi(\rho,\theta,\phi) = \alpha(\rho) Y_l^m(\theta,\phi) = \alpha(\rho) P_l^m (cos\theta) e^{i m\phi)}$$
+This is the use of Spherical coordinates and Legendre Polynomials
+
+\section{Lecture 17}
+$$\hat{L}_{\pm} \ket{l,m} = c_{\pm}(l,m) \ket{l,m}$$
+From now on we will leave implicit the dependence of the constant $c$ on $l$ and $m$.
+$$\bra{l,m} \hat{L}_{\pm} \hat{L}_{\mp} \ket{l,m} = |c_{\pm}|^2 \bra{l,m}\ket{l,m}$$
+$$\hat{L}_{\mp}\hat{L}_{\pm} = \hat{L}^2 - \hat{L}_z^2 \mp \hslash \hat{L}_z$$
+$$\hat{L}^2 = \hat{L}_z^2 + \hat{L}_y^2 + \hat{L}_x^2$$
+$$\bra{l,m}\hat{L}^2-\hat{L}_z^2 \mp \hslash \hat{L}_z \ket{l,m} = \bra{l,m}\hslash^2 l(l+1)- \hslash^2m^2 \mp \hslash^2 m \ket{l,m} = \hslash^2 [l(l+1)-m(m \pm1)] = |c_{\pm}|^2$$
+$\implies c_{\pm} = \hslash \sqrt{l(l+1)-m(m\pm1)}$ \\ \\
+\textbf{Magnetic Orbital Dipole Moment} \\ \\
+$\hat{\Vec{\mu}}_L = \frac{\mu \hat{\Vec{L}}}{\hslash}$, where $\mu = \frac{q\hslash}{2m}$ is the Bohr Magneton.
+$$\hat{H}_B = \hat{\Vec{\mu}}_L \cdot \hat{\Vec{B}} = \frac{\mu\hat{L}_z B}{\hslash}$$
+\\
+\textbf{Rotational Energy} \\ \\
+\includegraphics[scale = 0.5]{ammonium.png} \\ 
+We first analyze a perfectly symmetrical ammonium molecule $[NH_4]^+$.
+$$K_R = \frac{1}{2} \frac{L^2}{I}$$
+$$\hat{H}_R = \frac{1}{2} \frac{\hat{L}^2}{I}$$
+So we obtain the following eigen-equation:
+$$\frac{1}{2} \frac{\hat{L}^2}{I} \psi = E_r \psi \implies E_r = \frac{1}{2I}\hslash^2 l(l+1)$$
+Now we analyze the Ammonia molecule $NH_3$.
+In this case we have not a scalar, but a tensor of inertia, which is a diagonal $3x3$ matrix, if we use the principles axis of inertia as our system of reference.\\ \\ 
+\includegraphics[scale = 0.5]{ammonia.png} \\  \\
+In this case we get:
+$$ \hat{H}_R = \frac{1}{2} \Biggl[ \frac{\hat{L}_x^2}{I_x} + \frac{\hat{L}_y^2}{I_y}+ \frac{\hat{L}_z^2}{I_z} \Biggl] = \frac{1}{2} \Biggl[ \frac{\hat{L}_x^2 + \hat{L}_y^2 + \hat{L}_z^2}{I_{xy}}- \frac{\hat{L}_z^2}{I_{xy}} + \frac{\hat{L}_z^2}{I_z} \Biggl] = \frac{1}{2} \Biggl[ \frac{\hat{L}^2}{I_{xy}} + \hat{L}_z^2 \Biggl( \frac{1}{I_z}- \frac{1}{I_{xy}} \biggl) \Biggl]
+$$
+
+$$\hat{H}_R \ket{l,m} = E_R(l,m) \ket{l,m} = E_R (l,m) \ket{l,m} = \frac{1}{2} \Biggl[ \frac{\hslash^2l(l+1)}{I_{xy}} + \hslash^2m^2 \biggl( \frac{1}{I_z} - \frac{1}{I_{xy}} \biggl) \Biggl] \ket{l,m}$$
+In the case of the $CO_2$, we have a linear molecule.
+\\ \\ 
+\includegraphics[scale = 1]{co2.png} $\hat{H}_R = \frac{1}{2} \frac{\hat{L}_x^2+ \hat{L}_y^2}{I_{xy}} \, \ E_R(l,m) = \frac{1}{2} \hslash^2 \frac{[l(l+1) - m^2]}{I_{xy}} \ $ \\ \\ 
+\textbf{Stern-Gerlach Experiment} \\ \\ 
+\includegraphics[scale = 0.7]{sge.png} \\ 
+$$\hat{L}_z = -i \hslash \frac{\partial}{\partial \theta_z} \psi(\theta_z) = L_z \psi(\theta_z) \implies L_z = \hslash m, \ \psi(\theta_z) = c e^{im\theta_z}$$
+We impose that:
+$$\psi(\theta_z) = c e^{im\theta_z} = c e^{im(\theta_z+4\pi)}$$
+For $2\pi = 0\pi$, the wave-function assumes two different values, so we must deal with a two-valued function.
+So we will work in a tensor product space:
+$$\mathcal{H}_r \otimes \mathcal{H}_s$$
+We assume the $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$ and $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$ to be our basis vectors.
+We define the operator $\hat{S}_z$.
+We impose, following the results from the Stern-Gerlach experiment, that : 
+$$\hat{S}_z \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \frac{\hslash}{2} \begin{bmatrix} 1 \\ 0 \end{bmatrix}$$
+$$\hat{S}_z \begin{bmatrix} 0 \\ 1 \end{bmatrix} = -\frac{\hslash}{2} \begin{bmatrix} 0 \\ 1 \end{bmatrix}$$
+Thus:
+$$\hat{S}_z = \frac{\hslash}{2} \begin{bmatrix}1 & 0 \\0 & 1 \end{bmatrix}
+$$
+Let's remember that $l = m_{MAX} = \frac{1}{2}$ and  we get:
+$$\hat{S}^2  \begin{bmatrix} \alpha \\ \beta \end{bmatrix} = \hslash^2 \frac{1}{2} \biggl( \frac{1}{2} + 1 \biggl)   \begin{bmatrix} \alpha \\ \beta \end{bmatrix}  = \hslash^2 \frac{3}{4}  \begin{bmatrix} \alpha \\ \beta \end{bmatrix}$$
+We can also define:
+$$\hat{S}_+ \ket{ s_z = \frac{\hslash}{2}} = c_+ \ket{s_z = \frac{\hslash}{2}} = \hslash \sqrt{l(l+1)-m(m+1)} = \hslash \ket{s_z = \frac{\hslash}{2}}$$
+Where $m= -\frac{1}{2}$ and l = $\frac{1}{2}$.
+
+\section{Lecture 18}
+
+We impose the following conditions:
+$$\hat{S}_+ \begin{bmatrix}
+    1 \\ 0
+\end{bmatrix} = \Vec{0}, \ \hat{S}_+ \begin{bmatrix}
+    1 \\ 0
+\end{bmatrix} = c_+ \begin{bmatrix}
+    1 \\ 0
+\end{bmatrix} = \hslash \begin{bmatrix}
+    1 \\ 0
+\end{bmatrix}  
+$$
+From the first condition it follows that:
+$$\hat{S}_+ \begin{bmatrix}
+    1 \\ 0
+\end{bmatrix} = \begin{bmatrix}
+    \alpha & \beta \\ \gamma & \delta \\
+\end{bmatrix} \begin{bmatrix}
+    1 \\ 0
+\end{bmatrix}= \begin{bmatrix}
+    0 \\ 0
+\end{bmatrix} \implies \alpha = 0, \gamma = 0$$
+From the second condition it follows that:
+$$\hat{S}_+ \begin{bmatrix}
+    1 \\ 0
+\end{bmatrix} = \begin{bmatrix}
+    0 & \beta \\ 0 & \delta \\
+\end{bmatrix} \begin{bmatrix}
+    1 \\ 0
+\end{bmatrix}= \hslash \begin{bmatrix}
+    1 \\ 0
+\end{bmatrix} \implies \beta = \hslash, \delta = 0. $$
+Thus we get that;
+$$\hat{S}_+ = \hslash \begin{bmatrix}
+    0 & 1 \\ 0 & 0 \\
+\end{bmatrix}$$
+In the same way, we obtain that:
+$$ \hat{S}_- = \hslash \begin{bmatrix} 0 & 0 \\ 1 & 0 \\
+\end{bmatrix}$$
+We can now write the following system of equations: \\ 
+$$
+\begin{cases}
+\hat{S}_+ = \hat{S}_x + i \hat{S}_y \\ 
+\hat{S}_- = \hat{S_x} - i \hat{S}_y  
+\end{cases} \implies \begin{cases}
+\hat{S}_x = \frac{1}{2} (\hat{S}_+ + \hat{S}_-) \\ 
+\hat{S}_y = -\frac{i}{2}(\hat{S}_+- \hat{S}_-) 
+\end{cases} $$
+We obtain the following two matrices:
+$$\hat{S}_x = \frac{\hbar}{2} \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} = \frac{1}{2} \hslash \hat{\sigma}_x$$
+$$ \hat{S}_y = \frac{\hbar}{2} \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix} =  \frac{1}{2} \hslash \hat{\sigma}_y$$
+
+$$\hat{\Vec{S}} = \frac{1}{2}\hslash ( \Vec{u_x} \hat{\sigma}_x+ \Vec{u_y}\hat{\sigma}_y + \Vec{u_z}\hat{\sigma}_z ) $$
+Now let's evaluate the following commutators:
+$$ [ \hat{S}_x, \hat{S}_y ] = \hat{S}_x \hat{S}_y - \hat{S}_y\hat{S}_x= i\hslash \hat{S}_z$$
+Similarly, we get:
+$$[\hat{S}_y, \hat{S}_z] = i \hslash \hat{S}_x$$
+$$[\hat{S}_z, \hat{S}_x] = i \hslash \hat{S}_y$$
+We get results analogous to the ones that we obtain for the commutators for the $\hat{L}_{x/y/z}$ operators.
+
+$$ \hat{S}^2 = \hat{\Vec{S}}\hat{\Vec{S}}^* = \biggl( \frac{1}{2} \hslash \biggl)^2 \bigl[ |\sigma_x^2|+ |\sigma_y|^2+ |\sigma_z|^2 \bigl] = \frac{3}{4} \hslash^2 \hat{I}$$
+With $S = \frac{1}{2}$, we can write: $\hat{S}^2 = \hslash^2 S(S+1)\hat{I}$.
+All the Fermions have spin $S=\frac{1}{2}$. Instead all the Bosons have spin $ S = 1$, save from the Higg's Boson which have spin $S=0$.
+For a two atoms system, in the tensor product space, we can choose as a basis the following kets:
+$$\ket{x_0, \uparrow}, \ket{x_0, \downarrow}, \ket{-x_0, \uparrow}, \ket{-x_0, \downarrow}$$ \\
+$$\hat{\Vec{J}} = \hat{\Vec{L}}+ \hat{\Vec{S}}$$
+$$\hat{S}_{TOT} = \hat{S}_1 + \hat{S}_2$$
+If we have a composite systems, expressed by the two kets $\ket{l_1,m_1}, \ket{l_2,m_2}$ we have that $m_{TOT} = m_1+m_2$ and $|l_1-l_2| \leq l_{TOT} \leq l_1+l_2$
+$S_1 = S_2 = \frac{1}{2}$.
+Let's fix the following quantities:$$\hat{S}_{TOT} \ket{e_1,e_2} = \hslash^2 S_{TOT} (S_{TOT}+1) \ket{e_1,e_2}$$:
+$$0 \leq S_{TOT} \leq 1$$
+There is a relation between $\hat{\Vec{\mu}}$ and $\hat{\Vec{S}}$ that can be expressed through the Bohr Magneton:
+$$\hat{\Vec{\mu}} = \frac{g \mu_B}{\hslash} \hat{\Vec{S}}$$
+$$\hat{H}_B = \hat{\Vec{\mu}}\Vec{B}$$
+For the electron $g_e= 2$. We also get that:
+$$\Vec{B}' = \frac{\Vec{V} \cross \Vec{E}}{c}$$
+$$\hat{H}' = \hat{H} = \hat{\Vec{\mu_s}} \Vec{B}' = \hat{\Vec{\mu}}_s \frac{\Vec{V}\cross\Vec{E}}{c}$$
+
+\section{Lecture 19}
+\textbf{Identical Particles}
+$$\psi(\Vec{r}_1, s_1,\Vec{r}_2,s_2),\ \psi(\Vec{r}_2,s_2,\Vec{r}_1,s_1)$$
+$$\hat{H} = \hat{T}_k+ \hat{V}_ex(\Vec{r}_1) \hat{V}_ex(\Vec{r}_2)+ \hat{V}_{int}(|\Vec{r}_1-\Vec{r}_|,|s_1-s_2|)$$
+Doing a permutations on two identical particle does not change the state of our quantum systems, thus we introduce the permutation operator:
+$$\hat{P}_{12} = \hat{P}_{21} \implies \hat{P}_{12}\psi(\Vec{r}_1,s_1,\Vec{r}_2,s_2) = \psi(\Vec{r}_2,s_2,\vec{r}_1,s_1)$$
+The permutation operator swaps the two identical particle, and since its squared operator is the Identity the two eigenvalues muse be $\pm 1$. Since, its eigenvalues are scalar, it commutes with every operator, thus also with the Hamiltonian.
+$$\hat{P}_k \hat{H} = \hat{H}\hat{P}_k$$
+We conclude that $\psi(\vec{r}_1,s_1,\vec{r}_2,s_2) = \pm \psi(\vec{r}_2,s_2,\vec{r}_1,s_1)$. \\
+Particle with eigenvalue $-1$ are the so called Fermions, antisymmetric particles, while particle with eigenvalue $1$ are the so called Bosons, which are symmetric particles.\\
+Let's now consider two independent particle:
+$$\hat{H} \psi(\vec{r}_1,s_1,\vec{r}_2,s_2) = \bigl[ (\hat{T}_{k_1}+ \hat{V}_1) +(\hat{T}_{k_2}+ \hat{V}_2) \bigl] \psi(\vec{r}_1,s_1) \psi(\vec{r}_2,s_2) = E_{TOT}\psi_1(\vec{r}_1,s_1)\psi_2(\vec{r}_2,s_2) $$
+
+$$ \implies \begin{cases}
+     \hat{T}_{k_1}+ \hat{V}_1 = E_1\psi(\vec{r}_1,s_1) \\
+     \hat{T}_{k_2}+ \hat{V}_2 = E_2\psi(\vec{r}_2,s_2) \\
+\end{cases}$$
+Thus we get that$E_{TOT} = E_1+ E_2$. \\
+Now we will deduce the the Pauli Exclusion Principle, for two non interacting identical fermions in the ground state $0$, with same spin $s=s_1=s_2$ we get:
+$$\psi = \psi_0(\vec{r}_1,s,\vec{r}_2,s)= \psi_0(\vec{r}_1,s)\psi_0(\vec{r}_2,s)= -\psi_0(\vec{r}_2,s,\vec{r}_1,s) = -  \psi_0(\vec{r}_2,s)\psi_0(\vec{r}_1,s)=0$$
+Our framework is a two dimensional Hilbert space:
+$$
+\begin{cases}
+\psi(\vec{r}_1)\ket{s_1}_1\\
+\psi(\vec{r}_2)\ket{s_2}_2\\
+\end{cases} \implies \psi(\vec{r}_1)\ket{s_1}_1\psi(\vec{r}_2)\ket{s_2}_2
+$$
+The product of the two functions satisfy the Schrodinger equation, bu we must also impose to have an antisymmetric function. Thus:
+$$\frac{1}{\sqrt{2}}\bigl[\psi(\vec{r}_1)\ket{s_1}_1\psi(\vec{r}_2)\ket{s_2}_2-\psi(\vec{r}_1)\ket{s_1}_1\psi(\vec{r}_2)\ket{s_2}_2\bigl] =\psi(\vec{r}_1)\psi(\vec{r}_2) \bigl[ \ket{s_1}_1\ket{s_2}_2-\ket{s_2}_2\ket{s_1}_1 \bigl] = \star $$
+If $s_1=s_2 \implies \star = 0 $.\\
+We have have tried to obtain an antisymmetric solution of the Schrodinger Equation, by a linear combination of a solution, obtaining a null function which is not acceptable since it is not normalizable.
+
+\end{document}
+
