@@ -15,12 +15,12 @@ The lecture notes cover various topics in Quantum Physics and are organized into
 
 1. Introduction to Quantum Mechanics
 2. Wave-particle Duality
-3. Schrödinger Equation
 4. Quantum Mechanical Operators
 5. Quantum Measurement and Observables
 6. Quantum Systems and their States
-7. Time Evolution and Quantum Dynamics
-8.  Quantum Harmonic Oscillator
-9. Angular Momentum and Spin
+7.  Schrödinger Equation
+8. Time Evolution and Quantum Dynamics
+9.  Quantum Harmonic Oscillator
+10. Angular Momentum and Spin
 11. Identical Particles and Symmetry
 12. Quantum Entanglement and Bell's Inequality
