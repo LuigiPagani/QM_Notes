@@ -18,8 +18,8 @@
 \usepackage{comment}
 \usepackage{ textcomp }
 \usepackage{fourier}
+\usepackage[a4paper, margin= 3.5cm]{ geometry }
 
-%\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}  
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
@@ -45,7 +45,7 @@ The most up to date version of this notes is available at this \href{https://it.
 
 \section*{ \danger \  Notation}
 In these notes, I use the standard bra-ket notation for quantum mechanics. However, for scalar operators, the "hat" $\hat{O}$ has been sometimes omitted to make the notation less heavy.
-We also  use an abuse of notation, indeed in this notes  $\bra{v\hat{A}}$ stands for $\bra{\hat{A}v}$, and we will use them interchangeably. 
+We also  use an abuse of notation, indeed in this notes  $\bra{v\hat{A}}$ stands for $\bra{\hat{A}v}$, and we will use them interchangeably for Hermitian operators. 
 
 \newpage 
 \tableofcontents 
@@ -150,7 +150,7 @@ $ \alpha_j = \bra{v_j} \ket{u}$ and $\beta_k = \bra{w_k}\ket{u}$.
 I the next step we will derive the formula for the change of basis. \\ 
 $1) \ \alpha_j = \bra{v_j}\ket{u}$ \\
 $2)\  \ket{v_j} = \sum_k \bra{w_k} \ket{v_j} \ket{w_k}$. \\
-Substituting $2)$ in $ 1)$, we obtain the following: $$\alpha_j = \sum_k \bra{w_k} \ket{v_j}^* \bra{w_k} \ket{u} = \sum_k \bra{v_j} \ket{w_k} \bra{w_k} \ket{u} = \sum_k \bra{v_j} \ket{w_k} \beta_k$$.
+Substituting $2)$ in $ 1)$, we obtain the following: $$\alpha_j = \sum_k \bra{w_k} \ket{v_j}^* \bra{w_k} \ket{u} = \sum_k \bra{v_j} \ket{w_k} \bra{w_k} \ket{u} = \sum_k \bra{v_j} \ket{w_k} \beta_k.$$
 
 \section{Lecture 4}
 The coefficients of a quantum state in two different bases are related by the expressions $\alpha_j = \sum_k M_{jk} \beta_k$, with $M_{jk}=\langle o_j \vert v_k \rangle$ and $\beta_k = \sum_j M_{kj}' \alpha_j$, with $M_{kj}' = \langle v_k \vert o_j \rangle$. The matrices $M$ and $M'$ are the change of basis matrix.\\ \\
@@ -251,7 +251,7 @@ $$ \begin{bmatrix}
 \end{bmatrix} \begin{bmatrix}
     \beta_1 \\
     \beta_2 \\
-\end{bmatrix}$$. \\ \\
+\end{bmatrix}.$$ \\ \\
 We call the newfound matrix $U = \begin{bmatrix}
     \bra{x_0}\ket{g} \ \ \bra{x_0}\ket{u} \\
     \bra{-x_0}\ket{g} \  \ \bra{-x_0}\ket{u} \\
