@@ -1,6 +1,7 @@
 # Quantum Physics Lecture Notes
 
-This repository contains the lecture notes for the Quantum Physics course held at Polytechnique University of Milan during the academic year 2022-2023 by Professor Marco Finazzi.
+This repository contains the lecture notes for the course on numerical methods for partial differential equations, taught by Marco Finazzi at Polytechnic University of Milan during the 2022/23 academic year, with minor additions and modifications.
+The intellectual property remains with the aforementioned professor, who has not reviewed this document. It is intended solely as a supplementary resource for the lectures, created by students for students, without any claims to replace official textbooks or attendance in the lectures. These notes are taken from the lectures and most of the illustrations are based on the professor's drawings, to whom the intellectual property also belongs. 
 
 ## Course Information
 
